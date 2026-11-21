@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Primary Meta Tags -->
+    <title>SkyBuild 3D — Tower Crane & Construction Simulator | 3D WebGL Physics Game by Md Mujahidul Islam</title>
+    <meta name="title" content="SkyBuild 3D — Tower Crane & Construction Simulator | 3D WebGL Physics Game by Md Mujahidul Islam" />
+    <meta name="description" content="SkyBuild 3D is an interactive 3D tower crane construction simulator built with Three.js & Tailwind CSS by Md Mujahidul Islam. Operate slewing jibs, trolleys, and hoists with realistic pendulum physics, laser alignment guides, and progressive building contracts." />
+    <meta name="keywords" content="SkyBuild 3D, Tower Crane Simulator, Construction Simulator Game, 3D WebGL Game, Three.js Physics Game, Web Game, Crane Simulator 3D, Md Mujahidul Islam, mujahidul80, Browser Game, Physics Simulation" />
+    <meta name="author" content="Md Mujahidul Islam" />
+    <meta name="creator" content="Md Mujahidul Islam" />
+    <meta name="publisher" content="Md Mujahidul Islam" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="theme-color" content="#facc15" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="canonical" href="https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="game" />
+    <meta property="og:site_name" content="SkyBuild 3D Simulator" />
+    <meta property="og:url" content="https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/" />
+    <meta property="og:title" content="SkyBuild 3D — Tower Crane & Construction Simulator" />
+    <meta property="og:description" content="Operate heavy-duty tower cranes, hoist concrete and steel beams with pendulum physics, and erect architectural structures from the ground up." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/mujahidul80/skybuild-3d-tower-crane-simulator/main/public/preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SkyBuild 3D Tower Crane Construction Simulator" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/" />
+    <meta name="twitter:title" content="SkyBuild 3D — Tower Crane Construction Simulator" />
+    <meta name="twitter:description" content="3D WebGL physics tower crane game. Hoist materials, snap blueprint pieces, and complete building contracts." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/mujahidul80/skybuild-3d-tower-crane-simulator/main/public/preview.png" />
+    <meta name="twitter:image:alt" content="SkyBuild 3D Tower Crane Simulator" />
+    <meta name="twitter:creator" content="@mujahidul80" />
+
+    <!-- Favicon: Tower Crane SVG Icon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23facc15'><path d='M3 3h18v2H9.41l6 6H21v2h-4.41l-2 2H21v2h-8.41l-2 2H21v2H3v-2h2V5H3V3zm4 15V5h4.59l-2 2H7v2h4.59l-2 2H7v2h4.59l-2 2H7v2h2.59l-2 2H7z'/></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23facc15'><path d='M3 3h18v2H9.41l6 6H21v2h-4.41l-2 2H21v2h-8.41l-2 2H21v2H3v-2h2V5H3V3zm4 15V5h4.59l-2 2H7v2h4.59l-2 2H7v2h4.59l-2 2H7v2h2.59l-2 2H7z'/></svg>" />
+
+    <!-- Structured Data (JSON-LD) - VideoGame & Person Graph -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/#developer",
+          "name": "Md Mujahidul Islam",
+          "alternateName": ["Mujahidul Islam", "mujahidul80", "mujahidulib"],
+          "url": "https://github.com/mujahidul80",
+          "jobTitle": "Game Developer, Packaging Designer & Creative Web Developer",
+          "description": "Creator of SkyBuild 3D and interactive 3D WebGL simulators. Specializing in Three.js physics applications, frontend engineering, and creative design.",
+          "sameAs": [
+            "https://github.com/mujahidul80",
+            "https://www.behance.net/mujahidulib",
+            "https://mujahidulib.blogspot.com",
+            "https://instagram.com/mujahidul_i3",
+            "https://facebook.com/MUJAHIDUL.IB.LOVE.A.MA.BABA.50",
+            "https://t.me/failuretm",
+            "https://wa.me/8801571432927"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dhaka",
+            "addressCountry": "Bangladesh"
+          }
+        },
+        {
+          "@type": "VideoGame",
+          "@id": "https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/#game",
+          "name": "SkyBuild 3D: Tower Crane & Construction Simulator",
+          "headline": "Interactive 3D WebGL Tower Crane Physics Simulation Game",
+          "description": "Operate a heavy-duty yellow tower crane with trolley in/out, slewing rotation, and hoist cable controls. Hoist concrete wall panels, steel I-beams, glass windows, pillars, and roof caps with pendulum dynamics and precision alignment lasers.",
+          "genre": ["Simulation", "Physics Game", "Construction Simulator", "3D Web Game"],
+          "gamePlatform": "Web Browser",
+          "operatingSystem": "Any (Chrome, Firefox, Safari, Edge)",
+          "applicationCategory": "GameApplication",
+          "playMode": "SinglePlayer",
+          "inLanguage": "en-US",
+          "author": {
+            "@id": "https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/#developer"
+          },
+          "creator": {
+            "@id": "https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/#developer"
+          },
+          "publisher": {
+            "@id": "https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/#developer"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/#website",
+          "url": "https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/",
+          "name": "SkyBuild 3D — Tower Crane & Construction Simulator",
+          "description": "Official WebGL home of SkyBuild 3D Simulator by Md Mujahidul Islam.",
+          "author": {
+            "@id": "https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/#developer"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS for Responsive Industrial HUD -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Three.js r128 for 60 FPS WebGL 3D Rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Industrial / Technical Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #7cc4fa;
+            font-family: 'Inter', sans-serif;
+            color: #f8fafc;
+        }
+
+        .font-tech {
+            font-family: 'Chakra Petch', sans-serif;
+        }
+
+        #game-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+            cursor: grab;
+        }
+
+        #game-canvas:active {
+            cursor: grabbing;
+        }
+
+        /* Industrial Dark-Slate & Safety-Yellow Glass Panels */
+        .ind-panel {
+            background: rgba(15, 23, 42, 0.86);
+            border: 1px solid rgba(250, 204, 21, 0.42);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .ind-btn {
+            background: linear-gradient(180deg, #facc15 0%, #eab308 100%);
+            color: #0f172a;
+            border: 1px solid #fef08a;
+            box-shadow: 0 4px 14px rgba(234, 179, 8, 0.38);
+            transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.12s ease;
+        }
+
+        .ind-btn:hover {
+            filter: brightness(1.06);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(250, 204, 21, 0.52);
+        }
+
+        .ind-btn:active {
+            transform: translateY(1px) scale(0.97);
+        }
+
+        .slate-btn {
+            background: rgba(30, 41, 59, 0.88);
+            color: #e2e8f0;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            transition: all 0.12s ease;
+        }
+
+        .slate-btn:hover {
+            background: rgba(51, 65, 85, 0.95);
+            border-color: rgba(250, 204, 21, 0.7);
+            color: #fef08a;
+        }
+
+        .slate-btn.active {
+            background: rgba(234, 179, 8, 0.25);
+            border-color: #facc15;
+            color: #fde047;
+            box-shadow: 0 0 12px rgba(250, 204, 21, 0.35);
+        }
+
+        /* Crane Touch Control Pad Buttons */
+        .ctrl-btn {
+            background: rgba(15, 23, 42, 0.86);
+            border: 1.5px solid rgba(250, 204, 21, 0.5);
+            color: #f8fafc;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+            transition: background 0.1s, transform 0.08s;
+            touch-action: none;
+        }
+
+        .ctrl-btn:active, .ctrl-btn.pressed {
+            background: rgba(234, 179, 8, 0.85);
+            color: #0f172a;
+            transform: scale(0.94);
+        }
+
+        /* Hazard Stripe Accent Bar */
+        .hazard-stripe {
+            background: repeating-linear-gradient(
+                -45deg,
+                #facc15,
+                #facc15 10px,
+                #1e293b 10px,
+                #1e293b 20px
+            );
+        }
+
+        /* Floating Toast Animation */
+        @keyframes toastSlide {
+            0% { opacity: 0; transform: translate(-50%, 10px) scale(0.95); }
+            15% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+            85% { opacity: 1; transform: translate(-50%, -2px) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -12px) scale(0.96); }
+        }
+
+        .toast-show {
+            animation: toastSlide 2.1s forwards ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== SEARCH ENGINE & CRAWLER SEMANTIC FALLBACK (100% SEO INDEXING) ==================== -->
+    <noscript>
+        <div style="padding: 28px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0f172a; color: #f8fafc; max-width: 860px; margin: 0 auto; line-height: 1.6;">
+            <h1 style="color: #facc15; font-size: 28px;">SkyBuild 3D: Tower Crane &amp; Construction Simulator</h1>
+            <p><strong>Developed by:</strong> <a href="https://github.com/mujahidul80" style="color: #38bdf8;">Md Mujahidul Islam</a> (Dhaka, Bangladesh)</p>
+            <p>SkyBuild 3D is a full 60 FPS WebGL physics simulation game running in your browser. This interactive simulation requires JavaScript and WebGL enabled. If your browser does not support WebGL, read the game overview, technical guide, and controls manual below:</p>
+
+            <h2 style="color: #38bdf8;">Game Overview &amp; Missions</h2>
+            <p>Take command of an industrial yellow Liebherr-style tower crane on an active metropolitan construction site. Pick up structural materials from delivery trucks and staging pads, hoist them across the worksite, and align them with glowing architectural blueprints.</p>
+            <ul>
+                <li><strong>Contract 1: Site Office</strong> — Place concrete perimeter walls and prefabricated roof slabs.</li>
+                <li><strong>Contract 2: Industrial Warehouse</strong> — Erect structural steel I-beams, cross-braces, and heavy roof trusses.</li>
+                <li><strong>Contract 3: High-Rise Skyscraper Core</strong> — Hoist multi-story elevator shafts, reinforced columns, and exterior glass panels.</li>
+                <li><strong>Free Build Sandbox Mode</strong> — Unlimited spawning of concrete blocks, steel beams, glass walls, columns, and roofs with vertical stacking and 90° rotation.</li>
+            </ul>
+
+            <h2 style="color: #38bdf8;">Crane Operator Controls Manual</h2>
+            <table border="1" cellpadding="8" style="border-collapse: collapse; border-color: #334155; width: 100%; margin: 16px 0;">
+                <tr style="background: #1e293b; color: #facc15;"><th>Function</th><th>Desktop Keyboard</th><th>Mobile Touch Control</th></tr>
+                <tr><td>Slew Jib Left / Right</td><td>A / D or Left / Right Arrows</td><td>On-Screen D-Pad (Left / Right)</td></tr>
+                <tr><td>Trolley Out / In</td><td>W / S or Up / Down Arrows</td><td>On-Screen D-Pad (Out / In)</td></tr>
+                <tr><td>Hoist Cable Up / Down</td><td>Q / E or Shift / Ctrl</td><td>Hoist Buttons (Up / Down)</td></tr>
+                <tr><td>Electromagnet Grab / Place</td><td>SPACEBAR</td><td>Yellow Grab / Place Button</td></tr>
+                <tr><td>Rotate Block 90°</td><td>R Key</td><td>90° Rotate Button</td></tr>
+                <tr><td>Switch Camera Perspective</td><td>C Key</td><td>Camera Button (Orbit / Top-Down / Cabin)</td></tr>
+            </table>
+
+            <h2 style="color: #38bdf8;">Developer &amp; Contact Information</h2>
+            <p><strong>Developer:</strong> Md Mujahidul Islam (mujahidul80)</p>
+            <p><strong>Portfolio &amp; Channels:</strong></p>
+            <ul>
+                <li>GitHub: <a href="https://github.com/mujahidul80" style="color: #38bdf8;">github.com/mujahidul80</a></li>
+                <li>Behance: <a href="https://www.behance.net/mujahidulib" style="color: #38bdf8;">behance.net/mujahidulib</a></li>
+                <li>WhatsApp: <a href="https://wa.me/8801571432927" style="color: #38bdf8;">+880 1571-432927</a></li>
+                <li>Email: <a href="mailto:mdmujahidul31@gmail.com" style="color: #38bdf8;">mdmujahidul31@gmail.com</a></li>
+                <li>Telegram: <a href="https://t.me/failuretm" style="color: #38bdf8;">@failuretm</a></li>
+            </ul>
+        </div>
+    </noscript>
+
+    <main class="sr-only">
+        <h1>SkyBuild 3D — Tower Crane &amp; Construction Simulator by Md Mujahidul Islam</h1>
+        <article>
+            <h2>Industrial 3D Tower Crane Physics Simulator</h2>
+            <p>Operate an articulated tower crane with real-time pendulum dynamics, cable elasticity, trolley traversal, and slewing torque. Built with Three.js, WebGL, Tailwind CSS, and Web Audio API by Md Mujahidul Islam.</p>
+        </article>
+    </main>
+
+
+    <!-- 3D WebGL Canvas -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- Main In-Game HUD -->
+    <div id="hud" class="fixed inset-0 z-20 pointer-events-none hidden flex flex-col justify-between p-2.5 sm:p-4">
+        <!-- TOP BAR -->
+        <div class="flex flex-wrap items-start justify-between gap-2 w-full">
+            <!-- Left: Mode, Level, Progress & Cash -->
+            <div class="ind-panel rounded-xl px-3.5 py-2 sm:px-4 sm:py-2.5 flex items-center gap-3 sm:gap-5 pointer-events-auto">
+                <div>
+                    <div id="hud-mode-label" class="text-[10px] sm:text-xs font-tech uppercase tracking-widest text-yellow-400 font-bold">
+                        CONTRACT // LVL 1
+                    </div>
+                    <div id="hud-level-name" class="font-tech text-sm sm:text-lg font-bold text-white leading-tight">
+                        Site Office
+                    </div>
+                </div>
+
+                <div class="h-8 w-px bg-slate-600/70"></div>
+
+                <div>
+                    <div class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold">Progress</div>
+                    <div id="hud-progress" class="font-tech text-sm sm:text-lg font-bold text-cyan-300 leading-tight">0 / 6</div>
+                </div>
+
+                <div class="h-8 w-px bg-slate-600/70"></div>
+
+                <div>
+                    <div class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold">Budget</div>
+                    <div id="hud-cash" class="font-tech text-sm sm:text-lg font-bold text-emerald-400 leading-tight">$0</div>
+                </div>
+            </div>
+
+            <!-- Right: Quick Action Toolbar -->
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pointer-events-auto">
+                <button id="btn-cam" class="slate-btn rounded-xl px-2.5 py-2 text-xs sm:text-sm font-tech font-bold cursor-pointer" title="Switch Camera (C)">
+                    🎥 ORBIT
+                </button>
+                <button id="btn-mode" class="slate-btn rounded-xl px-2.5 py-2 text-xs sm:text-sm font-tech font-bold cursor-pointer" title="Switch Contract / Free Build">
+                    🏗 FREE BUILD
+                </button>
+                <button id="btn-reset" class="slate-btn rounded-xl px-2.5 py-2 text-xs sm:text-sm font-tech font-bold cursor-pointer" title="Reset Current Site">
+                    ↺ RESET
+                </button>
+                <button id="btn-help" class="slate-btn rounded-xl px-2.5 py-2 text-xs sm:text-sm font-tech font-bold cursor-pointer" title="Toggle Controls Help">
+                    ? HELP
+                </button>
+                <button id="btn-mute" class="slate-btn rounded-xl px-2.5 py-2 text-xs sm:text-sm font-tech font-bold cursor-pointer" title="Mute / Unmute Audio">
+                    🔊
+                </button>
+            </div>
+        </div>
+
+        <!-- CENTER STATUS PILL & TOAST -->
+        <div class="pointer-events-none flex flex-col items-center gap-2 my-auto">
+            <!-- Dynamic Hook Status / Alignment Indicator -->
+            <div id="status-banner" class="fixed top-20 left-1/2 -translate-x-1/2 ind-panel rounded-full px-4 py-1.5 text-xs sm:text-sm font-tech font-bold tracking-wider text-yellow-300 transition-colors">
+                MOVE CRANE TO STAGING ZONE &amp; PRESS SPACE TO GRAB
+            </div>
+
+            <!-- Floating Reward / Event Toast -->
+            <div id="toast-msg" class="fixed top-32 left-1/2 -translate-x-1/2 opacity-0 ind-panel border-emerald-400/70 rounded-full px-5 py-1.5 font-tech text-xs sm:text-base font-bold text-emerald-300 tracking-wide">
+                PERFECT PLACEMENT! 98% (+$280)
+            </div>
+        </div>
+
+        <!-- BOTTOM BAR: Sandbox Toolbar (Left) + On-Screen Crane Controls (Right) -->
+        <div class="flex flex-col md:flex-row items-stretch md:items-end justify-between gap-2.5 w-full">
+            <!-- Left Side: Contract Next-Piece Info OR Free Build Material Picker -->
+            <div class="pointer-events-auto flex flex-col gap-2 max-w-full">
+                <!-- Contract Mode Piece Info Card -->
+                <div id="contract-info-card" class="ind-panel rounded-xl px-3.5 py-2.5 max-w-xs">
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-[10px] uppercase tracking-widest text-cyan-400 font-bold">Next Blueprint Piece</span>
+                        <span id="contract-rot-hint" class="text-[10px] font-tech text-yellow-300">PRESS [R] TO ROTATE</span>
+                    </div>
+                    <div id="contract-piece-name" class="font-tech text-sm sm:text-base font-bold text-white mt-0.5">
+                        Concrete Wall Panel
+                    </div>
+                    <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden mt-2">
+                        <div id="contract-progress-bar" class="h-full bg-gradient-to-r from-yellow-400 to-emerald-400 transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Free Build Material Toolbar -->
+                <div id="sandbox-toolbar" class="hidden ind-panel rounded-xl p-2.5 space-y-2">
+                    <div class="flex items-center justify-between gap-3">
+                        <span class="text-[11px] font-tech uppercase tracking-wider text-yellow-400 font-bold">Spawn Material</span>
+                        <button id="btn-spawn-mode" class="slate-btn active rounded-lg px-2 py-0.5 text-[10px] font-tech font-bold cursor-pointer">
+                            MODE: DIRECT TO HOOK
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <button data-mat="concrete" class="mat-btn slate-btn rounded-lg px-2.5 py-1.5 text-xs font-tech font-bold cursor-pointer">🧱 Concrete</button>
+                        <button data-mat="steel" class="mat-btn slate-btn rounded-lg px-2.5 py-1.5 text-xs font-tech font-bold cursor-pointer">🔩 Steel Beam</button>
+                        <button data-mat="glass" class="mat-btn slate-btn rounded-lg px-2.5 py-1.5 text-xs font-tech font-bold cursor-pointer">🪟 Glass Wall</button>
+                        <button data-mat="pillar" class="mat-btn slate-btn rounded-lg px-2.5 py-1.5 text-xs font-tech font-bold cursor-pointer">🏛 Pillar</button>
+                        <button data-mat="roof" class="mat-btn slate-btn rounded-lg px-2.5 py-1.5 text-xs font-tech font-bold cursor-pointer">🏠 Roof Cap</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Touch / Mouse-Friendly On-Screen Crane Controls -->
+            <div class="pointer-events-auto self-end ind-panel rounded-2xl p-2.5 flex items-center gap-2.5">
+                <!-- Jib & Trolley D-Pad -->
+                <div class="grid grid-cols-3 gap-1.5 w-32 sm:w-36">
+                    <div></div>
+                    <button data-ctrl="trolleyOut" class="ctrl-btn rounded-lg py-2 text-xs font-tech font-bold cursor-pointer" title="Trolley Out (W / Up)">▲<span class="block text-[9px] text-yellow-300">OUT</span></button>
+                    <div></div>
+                    <button data-ctrl="rotLeft" class="ctrl-btn rounded-lg py-2 text-xs font-tech font-bold cursor-pointer" title="Rotate Left (A / Left)">◄<span class="block text-[9px] text-yellow-300">LEFT</span></button>
+                    <button id="btn-rotate-piece" class="ctrl-btn rounded-lg py-2 text-xs font-tech font-bold cursor-pointer border-cyan-400/60" title="Rotate Held Block 90° (R)">↻<span class="block text-[9px] text-cyan-300">90°</span></button>
+                    <button data-ctrl="rotRight" class="ctrl-btn rounded-lg py-2 text-xs font-tech font-bold cursor-pointer" title="Rotate Right (D / Right)">►<span class="block text-[9px] text-yellow-300">RIGHT</span></button>
+                    <div></div>
+                    <button data-ctrl="trolleyIn" class="ctrl-btn rounded-lg py-2 text-xs font-tech font-bold cursor-pointer" title="Trolley In (S / Down)">▼<span class="block text-[9px] text-yellow-300">IN</span></button>
+                    <div></div>
+                </div>
+
+                <!-- Hoist Up/Down + Grab/Drop Column -->
+                <div class="flex flex-col gap-1.5 w-24 sm:w-28">
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <button data-ctrl="hoistUp" class="ctrl-btn rounded-lg py-2 text-xs font-tech font-bold cursor-pointer" title="Hoist Up (Q / Shift)">⬆<span class="block text-[9px] text-yellow-300">UP</span></button>
+                        <button data-ctrl="hoistDown" class="ctrl-btn rounded-lg py-2 text-xs font-tech font-bold cursor-pointer" title="Hoist Down (E / Ctrl)">⬇<span class="block text-[9px] text-yellow-300">DOWN</span></button>
+                    </div>
+                    <button id="btn-grab-drop" class="ind-btn rounded-xl py-2.5 px-2 font-tech text-xs sm:text-sm font-bold tracking-wider cursor-pointer text-center">
+                        🧲 GRAB
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls Help Modal -->
+    <div id="help-modal" class="hidden fixed inset-0 z-40 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+        <div class="ind-panel rounded-2xl max-w-md w-full overflow-hidden">
+            <div class="hazard-stripe h-2 w-full"></div>
+            <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-tech text-xl font-bold text-yellow-400">CRANE OPERATOR MANUAL</h3>
+                    <button id="btn-close-help" class="slate-btn rounded-lg px-2.5 py-1 text-xs font-bold cursor-pointer">✕</button>
+                </div>
+                <div class="space-y-2 text-sm text-slate-200">
+                    <div class="flex justify-between border-b border-slate-700/60 pb-1.5">
+                        <span class="text-slate-400">Rotate Crane Jib</span>
+                        <span class="font-tech font-bold text-yellow-300">A / D or ◄ / ►</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-700/60 pb-1.5">
+                        <span class="text-slate-400">Move Trolley In / Out</span>
+                        <span class="font-tech font-bold text-yellow-300">W / S or ▲ / ▼</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-700/60 pb-1.5">
+                        <span class="text-slate-400">Raise / Lower Hook Cable</span>
+                        <span class="font-tech font-bold text-yellow-300">Q / E or Shift / Ctrl</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-700/60 pb-1.5">
+                        <span class="text-slate-400">Grab / Release Block</span>
+                        <span class="font-tech font-bold text-cyan-300">SPACEBAR</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-700/60 pb-1.5">
+                        <span class="text-slate-400">Rotate Held Block 90°</span>
+                        <span class="font-tech font-bold text-cyan-300">R</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-700/60 pb-1.5">
+                        <span class="text-slate-400">Switch Camera View</span>
+                        <span class="font-tech font-bold text-emerald-300">C</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Orbit &amp; Zoom Camera</span>
+                        <span class="font-tech font-bold text-slate-300">Mouse Drag &amp; Scroll</span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-400 bg-slate-900/70 rounded-lg p-2.5 border border-slate-700/60">
+                    Tip: Watch the vertical alignment laser below the hook! When it turns <span class="text-emerald-400 font-bold">GREEN</span> over a cyan blueprint ghost, press <span class="text-white font-bold">SPACE</span> to snap the piece into place.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level Complete Overlay -->
+    <div id="level-complete-modal" class="hidden fixed inset-0 z-40 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+        <div class="ind-panel rounded-3xl max-w-md w-full overflow-hidden text-center">
+            <div class="hazard-stripe h-2.5 w-full"></div>
+            <div class="p-7 space-y-5">
+                <div class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 font-tech text-xs tracking-widest font-bold">
+                    STRUCTURE INSPECTED &amp; APPROVED
+                </div>
+                <h2 id="lc-title" class="font-tech text-3xl font-bold text-yellow-400">LEVEL COMPLETE!</h2>
+                <p id="lc-subtitle" class="text-slate-300 text-sm">Site Office construction finished ahead of schedule.</p>
+
+                <div class="grid grid-cols-2 gap-3 bg-slate-900/75 rounded-2xl p-4 border border-slate-700/60">
+                    <div>
+                        <div class="text-xs text-slate-400 uppercase">Avg Accuracy</div>
+                        <div id="lc-accuracy" class="font-tech text-2xl font-bold text-cyan-300">96%</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-400 uppercase">Total Budget</div>
+                        <div id="lc-cash" class="font-tech text-2xl font-bold text-emerald-400">$1,500</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-2.5 pt-1">
+                    <button id="btn-next-level" class="ind-btn rounded-xl py-3 px-6 font-tech text-base font-bold tracking-wider cursor-pointer flex-1">
+                        NEXT CONTRACT ▶
+                    </button>
+                    <button id="btn-lc-sandbox" class="slate-btn rounded-xl py-3 px-4 font-tech text-sm font-bold cursor-pointer">
+                        FREE BUILD
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Screen Overlay -->
+    <div id="start-screen" class="fixed inset-0 z-30 flex items-center justify-center p-4 bg-slate-950/55 backdrop-blur-sm">
+        <div class="ind-panel rounded-3xl max-w-xl w-full overflow-hidden">
+            <div class="hazard-stripe h-3 w-full"></div>
+            <div class="p-6 sm:p-9 text-center space-y-6">
+                <div>
+                    <div class="inline-block px-3 py-1 rounded-full bg-yellow-400/15 border border-yellow-400/50 text-yellow-300 font-tech text-xs tracking-widest font-bold mb-2">
+                        3D TOWER CRANE &amp; CONSTRUCTION SIMULATOR
+                    </div>
+                    <h1 class="font-tech text-4xl sm:text-5xl font-bold tracking-wide text-white">
+                        SKY<span class="text-yellow-400">BUILD</span> 3D
+                    </h1>
+                    <p class="text-slate-300 text-sm sm:text-base mt-2">
+                        Operate a heavy-duty yellow tower crane, hoist steel &amp; concrete with precision laser guides, and erect iconic structures from the ground up.
+                    </p>
+                </div>
+
+                <!-- Quick Key Legend -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-left text-xs bg-slate-900/75 rounded-2xl p-4 border border-slate-700/60">
+                    <div>
+                        <div class="text-yellow-400 font-tech font-bold">A / D</div>
+                        <div class="text-slate-400">Rotate Jib</div>
+                    </div>
+                    <div>
+                        <div class="text-yellow-400 font-tech font-bold">W / S</div>
+                        <div class="text-slate-400">Trolley Out / In</div>
+                    </div>
+                    <div>
+                        <div class="text-yellow-400 font-tech font-bold">Q / E</div>
+                        <div class="text-slate-400">Hoist Up / Down</div>
+                    </div>
+                    <div>
+                        <div class="text-cyan-300 font-tech font-bold">SPACE</div>
+                        <div class="text-slate-400">Grab / Place</div>
+                    </div>
+                    <div>
+                        <div class="text-cyan-300 font-tech font-bold">R</div>
+                        <div class="text-slate-400">Rotate Block 90°</div>
+                    </div>
+                    <div>
+                        <div class="text-emerald-300 font-tech font-bold">C + Drag</div>
+                        <div class="text-slate-400">Camera &amp; Orbit</div>
+                    </div>
+                </div>
+
+                <!-- Mode Launch Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 justify-center pt-1">
+                    <button id="btn-start-contract" class="ind-btn rounded-2xl px-7 py-3.5 font-tech text-base sm:text-lg font-bold tracking-wider cursor-pointer flex-1">
+                        🏗 START CONTRACT MODE
+                    </button>
+                    <button id="btn-start-sandbox" class="slate-btn rounded-2xl px-6 py-3.5 font-tech text-base sm:text-lg font-bold tracking-wider cursor-pointer flex-1 border-yellow-400/40">
+                        🧱 FREE BUILD MODE
+                    </button>
+                </div>
+
+                <!-- Developer Credit Badge -->
+                <div class="pt-3 border-t border-slate-700/60 flex flex-wrap items-center justify-between text-xs text-slate-400">
+                    <div class="flex items-center gap-1.5">
+                        <span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span>
+                        <span>Developed by <strong class="text-yellow-400 font-tech">Md Mujahidul Islam</strong></span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="https://github.com/mujahidul80" target="_blank" rel="noopener noreferrer" class="hover:text-yellow-300 transition font-tech font-bold">
+                            GitHub: @mujahidul80
+                        </a>
+                        <a href="https://wa.me/8801571432927" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition font-tech font-bold">
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * ============================================================================
+         * SKYBUILD 3D: TOWER CRANE & CONSTRUCTION SIMULATOR
+         * ============================================================================
+         * Self-contained 60 FPS Three.js simulator with:
+         * - Procedural Web Audio API (crane motor hum, electromagnet, heavy thud, fanfare)
+         * - Articulated 3D Tower Crane with pendulum physics & laser drop-shadow guide
+         * - Daylight construction site (road, barriers, cones, parked dump truck & excavator)
+         * - 3 Progressive Contract Levels + Free Build Sandbox with grid & vertical stacking
+         * - 3 Camera Modes (Free Orbit, Top-Down Precision, Operator Cabin)
+         */
+
+        // ============================================================================
+        // 1. PROCEDURAL WEB AUDIO ENGINE
+        // ============================================================================
+        class ConstructionAudio {
+            constructor() {
+                this.ctx = null;
+                this.muted = false;
+                this.motorOsc = null;
+                this.motorGain = null;
+                this.motorFilter = null;
+                this.noiseBuffer = null;
+            }
+
+            init() {
+                if (!this.ctx) {
+                    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                    if (!AudioCtx) return;
+                    this.ctx = new AudioCtx();
+                    this._createNoiseBuffer();
+                    this._setupMotorHum();
+                }
+                if (this.ctx && this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+            }
+
+            _createNoiseBuffer() {
+                const len = this.ctx.sampleRate * 1.0;
+                const buf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
+                const data = buf.getChannelData(0);
+                for (let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
+                this.noiseBuffer = buf;
+            }
+
+            /** Continuous crane electric winch / slew motor hum */
+            _setupMotorHum() {
+                this.motorOsc = this.ctx.createOscillator();
+                this.motorOsc.type = 'sawtooth';
+                this.motorOsc.frequency.value = 62;
+
+                this.motorFilter = this.ctx.createBiquadFilter();
+                this.motorFilter.type = 'lowpass';
+                this.motorFilter.frequency.value = 180;
+
+                this.motorGain = this.ctx.createGain();
+                this.motorGain.gain.value = 0.0001;
+
+                this.motorOsc.connect(this.motorFilter);
+                this.motorFilter.connect(this.motorGain);
+                this.motorGain.connect(this.ctx.destination);
+                this.motorOsc.start();
+            }
+
+            updateMotor(intensity, hoistActive = false) {
+                if (!this.ctx || !this.motorGain) return;
+                const now = this.ctx.currentTime;
+                const targetGain = this.muted ? 0.0001 : Math.min(0.055, intensity * 0.048);
+                const targetFreq = hoistActive ? 92 : 64 + intensity * 24;
+                this.motorGain.gain.setTargetAtTime(targetGain, now, 0.06);
+                this.motorOsc.frequency.setTargetAtTime(targetFreq, now, 0.06);
+            }
+
+            toggleMute() {
+                this.muted = !this.muted;
+                if (this.muted && this.motorGain && this.ctx) {
+                    this.motorGain.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.04);
+                }
+                return this.muted;
+            }
+
+            /** Metallic electromagnet clamp sound */
+            playClamp() {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(620, now);
+                osc.frequency.exponentialRampToValueAtTime(180, now + 0.14);
+                gain.gain.setValueAtTime(0.18, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.16);
+
+                const ping = this.ctx.createOscillator();
+                const pingGain = this.ctx.createGain();
+                ping.type = 'sine';
+                ping.frequency.setValueAtTime(1320, now + 0.02);
+                ping.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+                pingGain.gain.setValueAtTime(0.08, now + 0.02);
+                pingGain.gain.exponentialRampToValueAtTime(0.001, now + 0.13);
+                ping.connect(pingGain);
+                pingGain.connect(this.ctx.destination);
+                ping.start(now + 0.02);
+                ping.stop(now + 0.14);
+            }
+
+            /** Heavy concrete / steel placement thud */
+            playPlacement(isSteel = false) {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+
+                // Deep impact thud
+                const sub = this.ctx.createOscillator();
+                const subGain = this.ctx.createGain();
+                sub.type = 'sine';
+                sub.frequency.setValueAtTime(isSteel ? 175 : 120, now);
+                sub.frequency.exponentialRampToValueAtTime(34, now + 0.24);
+                subGain.gain.setValueAtTime(0.32, now);
+                subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
+                sub.connect(subGain);
+                subGain.connect(this.ctx.destination);
+                sub.start(now);
+                sub.stop(now + 0.28);
+
+                // Filtered dust/gravel crunch
+                if (this.noiseBuffer) {
+                    const src = this.ctx.createBufferSource();
+                    src.buffer = this.noiseBuffer;
+                    const filter = this.ctx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(isSteel ? 1800 : 650, now);
+                    const nGain = this.ctx.createGain();
+                    nGain.gain.setValueAtTime(0.16, now);
+                    nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+                    src.connect(filter);
+                    filter.connect(nGain);
+                    nGain.connect(this.ctx.destination);
+                    src.start(now);
+                    src.stop(now + 0.22);
+                }
+            }
+
+            /** Crisp mechanical tick for 90-degree block rotation */
+            playRotateTick() {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(480, now);
+                osc.frequency.exponentialRampToValueAtTime(720, now + 0.06);
+                gain.gain.setValueAtTime(0.09, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.08);
+            }
+
+            /** Level Complete celebratory fanfare */
+            playFanfare() {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const notes = [523.25, 659.25, 783.99, 1046.5];
+                notes.forEach((freq, i) => {
+                    const t = now + i * 0.11;
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, t);
+                    gain.gain.setValueAtTime(0.15, t);
+                    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.38);
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+                    osc.start(t);
+                    osc.stop(t + 0.4);
+                });
+            }
+        }
+
+        // ============================================================================
+        // 2. CONTRACT LEVEL BLUEPRINTS (3 Progressive Levels)
+        // ============================================================================
+        // Foundation pad top surface is at y = 0.4, centered at (x = 0, z = 2).
+        const FOUNDATION_Y = 0.4;
+        const PAD_X = 0;
+        const PAD_Z = 2;
+
+        const CONTRACT_LEVELS = [
+            {
+                id: 1,
+                name: 'Site Office',
+                subtitle: 'Build a sturdy single-story site headquarters with glass frontage.',
+                pieces: [
+                    { type: 'concrete', label: 'Back Concrete Wall', size: [5.4, 2.8, 0.7], pos: [0, FOUNDATION_Y + 1.4, PAD_Z - 2.35], rotY: 0, sym: false },
+                    { type: 'concrete', label: 'West Side Wall', size: [5.4, 2.8, 0.7], pos: [-2.35, FOUNDATION_Y + 1.4, PAD_Z], rotY: Math.PI / 2, sym: false },
+                    { type: 'concrete', label: 'East Side Wall', size: [5.4, 2.8, 0.7], pos: [2.35, FOUNDATION_Y + 1.4, PAD_Z], rotY: Math.PI / 2, sym: false },
+                    { type: 'glass',    label: 'Front Glass Facade', size: [4.6, 2.8, 0.45], pos: [0, FOUNDATION_Y + 1.4, PAD_Z + 2.35], rotY: 0, sym: false },
+                    { type: 'steel',    label: 'Main Steel I-Beam', size: [5.8, 0.7, 0.7], pos: [0, FOUNDATION_Y + 3.15, PAD_Z], rotY: 0, sym: false },
+                    { type: 'roof',     label: 'Office Roof Slab', size: [6.0, 0.75, 5.8], pos: [0, FOUNDATION_Y + 3.88, PAD_Z], rotY: 0, sym: true }
+                ]
+            },
+            {
+                id: 2,
+                name: 'Modern Duplex',
+                subtitle: 'Construct a sleek two-story architectural residence with glass balconies.',
+                pieces: [
+                    { type: 'pillar',   label: 'Front-Left Pillar', size: [0.9, 3.0, 0.9], pos: [-2.4, FOUNDATION_Y + 1.5, PAD_Z + 2.2], rotY: 0, sym: true },
+                    { type: 'pillar',   label: 'Front-Right Pillar', size: [0.9, 3.0, 0.9], pos: [2.4, FOUNDATION_Y + 1.5, PAD_Z + 2.2], rotY: 0, sym: true },
+                    { type: 'concrete', label: 'Ground Rear Wall', size: [5.8, 3.0, 0.8], pos: [0, FOUNDATION_Y + 1.5, PAD_Z - 2.2], rotY: 0, sym: false },
+                    { type: 'glass',    label: 'Ground Glass Wall', size: [4.2, 3.0, 0.45], pos: [0, FOUNDATION_Y + 1.5, PAD_Z + 2.2], rotY: 0, sym: false },
+                    { type: 'concrete', label: '2nd Floor Slab', size: [6.2, 0.7, 5.8], pos: [0, FOUNDATION_Y + 3.35, PAD_Z], rotY: 0, sym: true },
+                    { type: 'concrete', label: 'Upper West Wall', size: [5.2, 2.8, 0.7], pos: [-2.4, FOUNDATION_Y + 5.1, PAD_Z], rotY: Math.PI / 2, sym: false },
+                    { type: 'glass',    label: 'Upper Panoramic Glass', size: [5.0, 2.8, 0.45], pos: [0, FOUNDATION_Y + 5.1, PAD_Z + 2.2], rotY: 0, sym: false },
+                    { type: 'steel',    label: 'Roof Support Girder', size: [6.0, 0.7, 0.7], pos: [0, FOUNDATION_Y + 6.85, PAD_Z], rotY: 0, sym: false },
+                    { type: 'roof',     label: 'Penthouse Roof Cap', size: [6.4, 0.8, 6.0], pos: [0, FOUNDATION_Y + 7.6, PAD_Z], rotY: 0, sym: true }
+                ]
+            },
+            {
+                id: 3,
+                name: 'Skyscraper Core',
+                subtitle: 'Erect a towering 3-tier steel & glass skyscraper core high above the site.',
+                pieces: [
+                    { type: 'pillar',   label: 'Core Column West', size: [1.1, 3.4, 1.1], pos: [-2.4, FOUNDATION_Y + 1.7, PAD_Z], rotY: 0, sym: true },
+                    { type: 'pillar',   label: 'Core Column East', size: [1.1, 3.4, 1.1], pos: [2.4, FOUNDATION_Y + 1.7, PAD_Z], rotY: 0, sym: true },
+                    { type: 'concrete', label: 'Tier 1 Floor Deck', size: [6.4, 0.75, 6.4], pos: [0, FOUNDATION_Y + 3.78, PAD_Z], rotY: 0, sym: true },
+                    { type: 'glass',    label: 'Tier 2 Front Curtain', size: [5.4, 3.2, 0.45], pos: [0, FOUNDATION_Y + 5.75, PAD_Z + 2.6], rotY: 0, sym: false },
+                    { type: 'glass',    label: 'Tier 2 Rear Curtain', size: [5.4, 3.2, 0.45], pos: [0, FOUNDATION_Y + 5.75, PAD_Z - 2.6], rotY: 0, sym: false },
+                    { type: 'concrete', label: 'Tier 2 Floor Deck', size: [6.0, 0.75, 6.0], pos: [0, FOUNDATION_Y + 7.72, PAD_Z], rotY: 0, sym: true },
+                    { type: 'steel',    label: 'Tier 3 Steel Frame N', size: [5.4, 0.8, 0.8], pos: [0, FOUNDATION_Y + 8.5, PAD_Z - 2.0], rotY: 0, sym: false },
+                    { type: 'steel',    label: 'Tier 3 Steel Frame S', size: [5.4, 0.8, 0.8], pos: [0, FOUNDATION_Y + 8.5, PAD_Z + 2.0], rotY: 0, sym: false },
+                    { type: 'pillar',   label: 'Central Atrium Core', size: [2.2, 3.2, 2.2], pos: [0, FOUNDATION_Y + 10.5, PAD_Z], rotY: 0, sym: true },
+                    { type: 'roof',     label: 'Skyscraper Crown Cap', size: [5.6, 1.1, 5.6], pos: [0, FOUNDATION_Y + 12.65, PAD_Z], rotY: 0, sym: true }
+                ]
+            }
+        ];
+
+        // Sandbox preset piece definitions
+        const SANDBOX_CATALOG = {
+            concrete: { label: 'Concrete Block', size: [3.6, 1.6, 3.6], sym: true },
+            steel:    { label: 'Steel I-Beam',   size: [5.4, 0.8, 0.8], sym: false },
+            glass:    { label: 'Glass Wall',     size: [4.2, 2.8, 0.45], sym: false },
+            pillar:   { label: 'Structural Pillar', size: [1.0, 3.0, 1.0], sym: true },
+            roof:     { label: 'Roof Cap',       size: [4.6, 0.9, 4.6], sym: true }
+        };
+
+        // ============================================================================
+        // 3. PROCEDURAL 3D ASSET FACTORY
+        // ============================================================================
+        const AssetFactory = {
+            /** Build a detailed low-poly construction piece based on type & dimensions */
+            createBlockMesh(type, size) {
+                const [w, h, d] = size;
+                const group = new THREE.Group();
+
+                if (type === 'concrete') {
+                    const mat = new THREE.MeshStandardMaterial({ color: 0xb8bec8, roughness: 0.88, metalness: 0.08 });
+                    const trimMat = new THREE.MeshStandardMaterial({ color: 0x8f97a3, roughness: 0.92 });
+                    const main = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+                    main.castShadow = true;
+                    main.receiveShadow = true;
+                    group.add(main);
+
+                    // Subtle architectural reveal bands
+                    const band = new THREE.Mesh(new THREE.BoxGeometry(w + 0.04, 0.12, d + 0.04), trimMat);
+                    band.position.y = h * 0.38;
+                    group.add(band);
+                } else if (type === 'steel') {
+                    // Authentic Steel I-Beam profile (Top flange, bottom flange, central web)
+                    const steelMat = new THREE.MeshStandardMaterial({ color: 0xb9382c, roughness: 0.42, metalness: 0.65 });
+                    const topFlange = new THREE.Mesh(new THREE.BoxGeometry(w, h * 0.22, d), steelMat);
+                    topFlange.position.y = h * 0.39;
+                    topFlange.castShadow = true;
+                    group.add(topFlange);
+
+                    const botFlange = topFlange.clone();
+                    botFlange.position.y = -h * 0.39;
+                    group.add(botFlange);
+
+                    const web = new THREE.Mesh(new THREE.BoxGeometry(w, h * 0.56, d * 0.32), steelMat);
+                    web.castShadow = true;
+                    group.add(web);
+                } else if (type === 'glass') {
+                    // Curtain wall with dark aluminum frame + reflective sky-blue glass
+                    const frameMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.35, metalness: 0.75 });
+                    const glassMat = new THREE.MeshStandardMaterial({
+                        color: 0x38bdf8,
+                        emissive: 0x0369a1,
+                        emissiveIntensity: 0.18,
+                        roughness: 0.12,
+                        metalness: 0.35,
+                        transparent: true,
+                        opacity: 0.72
+                    });
+
+                    const pane = new THREE.Mesh(new THREE.BoxGeometry(w - 0.16, h - 0.16, d * 0.55), glassMat);
+                    pane.castShadow = true;
+                    group.add(pane);
+
+                    // Top/bottom/side frame rails + center mullion
+                    const railH = new THREE.Mesh(new THREE.BoxGeometry(w, 0.16, d), frameMat);
+                    const topRail = railH.clone(); topRail.position.y = h / 2 - 0.08;
+                    const botRail = railH.clone(); botRail.position.y = -h / 2 + 0.08;
+                    group.add(topRail, botRail);
+
+                    const railV = new THREE.Mesh(new THREE.BoxGeometry(0.16, h, d), frameMat);
+                    const leftRail = railV.clone(); leftRail.position.x = -w / 2 + 0.08;
+                    const rightRail = railV.clone(); rightRail.position.x = w / 2 - 0.08;
+                    const midRail = railV.clone(); midRail.scale.x = 0.65;
+                    group.add(leftRail, rightRail, midRail);
+                } else if (type === 'pillar') {
+                    const colMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.75, metalness: 0.25 });
+                    const capMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.5, metalness: 0.55 });
+                    const shaft = new THREE.Mesh(new THREE.BoxGeometry(w * 0.86, h, d * 0.86), colMat);
+                    shaft.castShadow = true;
+                    shaft.receiveShadow = true;
+                    group.add(shaft);
+
+                    const cap = new THREE.Mesh(new THREE.BoxGeometry(w, 0.22, d), capMat);
+                    const topCap = cap.clone(); topCap.position.y = h / 2 - 0.11;
+                    const botCap = cap.clone(); botCap.position.y = -h / 2 + 0.11;
+                    group.add(topCap, botCap);
+                } else if (type === 'roof') {
+                    const roofMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.7, metalness: 0.2 });
+                    const trimMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.5, metalness: 0.3 });
+                    const base = new THREE.Mesh(new THREE.BoxGeometry(w, h * 0.7, d), roofMat);
+                    base.position.y = -h * 0.15;
+                    base.castShadow = true;
+                    base.receiveShadow = true;
+                    group.add(base);
+
+                    const crown = new THREE.Mesh(new THREE.BoxGeometry(w * 0.88, h * 0.32, d * 0.88), roofMat);
+                    crown.position.y = h * 0.34;
+                    crown.castShadow = true;
+                    group.add(crown);
+
+                    const trim = new THREE.Mesh(new THREE.BoxGeometry(w + 0.08, 0.1, d + 0.08), trimMat);
+                    trim.position.y = -h * 0.44;
+                    group.add(trim);
+                }
+
+                // Small steel lifting lug on top center so electromagnet visually attaches cleanly
+                const lugMat = new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.8, roughness: 0.3 });
+                const lug = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.16, 8), lugMat);
+                lug.position.y = h / 2 + 0.06;
+                group.add(lug);
+
+                return group;
+            },
+
+            /** Build a glowing cyan wireframe Blueprint Ghost target */
+            createBlueprintGhost(size) {
+                const [w, h, d] = size;
+                const group = new THREE.Group();
+
+                const fillMat = new THREE.MeshBasicMaterial({
+                    color: 0x22d3ee,
+                    transparent: true,
+                    opacity: 0.2,
+                    depthWrite: false
+                });
+                const fill = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), fillMat);
+                group.add(fill);
+
+                const edges = new THREE.EdgesGeometry(new THREE.BoxGeometry(w + 0.04, h + 0.04, d + 0.04));
+                const lineMat = new THREE.LineBasicMaterial({ color: 0x67e8f9 });
+                const wire = new THREE.LineSegments(edges, lineMat);
+                group.add(wire);
+
+                return { group, fillMat, lineMat };
+            },
+
+            /** Build the articulated Yellow Tower Crane (Mast, Cabin, Counterweights, Jib, Trolley, Cable & Hook) */
+            createTowerCrane() {
+                const craneRoot = new THREE.Group();
+                const yellowMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.42, metalness: 0.35 });
+                const darkMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.6, metalness: 0.55 });
+                const concreteMat = new THREE.MeshStandardMaterial({ color: 0x64748b, roughness: 0.9 });
+                const glassMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.15, metalness: 0.5, transparent: true, opacity: 0.78 });
+
+                const mastHeight = 25;
+
+                // Heavy Concrete Base Ballast
+                const base = new THREE.Mesh(new THREE.BoxGeometry(4.4, 1.2, 4.4), concreteMat);
+                base.position.y = 0.6;
+                base.castShadow = true;
+                base.receiveShadow = true;
+                craneRoot.add(base);
+
+                // Vertical Lattice Mast (4 corner steel chords + horizontal cross-braces)
+                const chordGeo = new THREE.BoxGeometry(0.24, mastHeight, 0.24);
+                [[-0.85, -0.85], [0.85, -0.85], [-0.85, 0.85], [0.85, 0.85]].forEach(([cx, cz]) => {
+                    const chord = new THREE.Mesh(chordGeo, yellowMat);
+                    chord.position.set(cx, mastHeight / 2 + 0.6, cz);
+                    chord.castShadow = true;
+                    craneRoot.add(chord);
+                });
+
+                const braceGeo = new THREE.BoxGeometry(1.75, 0.16, 1.75);
+                for (let y = 2.2; y <= mastHeight; y += 2.2) {
+                    const brace = new THREE.Mesh(braceGeo, yellowMat);
+                    brace.position.y = y;
+                    craneRoot.add(brace);
+                }
+
+                // Rotating Slewing Unit (Top of Mast)
+                const slewingGroup = new THREE.Group();
+                slewingGroup.position.y = mastHeight + 0.6;
+                craneRoot.add(slewingGroup);
+
+                // Slewing Turntable Ring
+                const turntable = new THREE.Mesh(new THREE.CylinderGeometry(1.15, 1.15, 0.7, 12), darkMat);
+                slewingGroup.add(turntable);
+
+                // Apex Tower Peak (Cathead)
+                const apex = new THREE.Mesh(new THREE.ConeGeometry(1.1, 4.2, 4), yellowMat);
+                apex.position.y = 2.8;
+                apex.rotation.y = Math.PI / 4;
+                apex.castShadow = true;
+                slewingGroup.add(apex);
+
+                // Operator Cabin (mounted on side of slewing unit, facing +Z along the jib)
+                const cabin = new THREE.Group();
+                cabin.position.set(1.55, -0.2, 0.8);
+                const cabinBody = new THREE.Mesh(new THREE.BoxGeometry(1.45, 1.9, 2.0), yellowMat);
+                cabinBody.castShadow = true;
+                cabin.add(cabinBody);
+                const cabinGlass = new THREE.Mesh(new THREE.BoxGeometry(1.3, 1.1, 1.35), glassMat);
+                cabinGlass.position.set(0, 0.15, 0.42);
+                cabin.add(cabinGlass);
+                slewingGroup.add(cabin);
+
+                // Main Forward Jib (Boom) pointing along +Z (Length = 27 units)
+                const jibLen = 27;
+                const jibBottom = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.28, jibLen), yellowMat);
+                jibBottom.position.set(0, 0.65, jibLen / 2 - 0.5);
+                jibBottom.castShadow = true;
+                slewingGroup.add(jibBottom);
+
+                const jibTop = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.24, jibLen - 1.5), yellowMat);
+                jibTop.position.set(0, 1.85, jibLen / 2 - 1.0);
+                jibTop.castShadow = true;
+                slewingGroup.add(jibTop);
+
+                // Jib diagonal struts
+                for (let z = 1.5; z < jibLen - 1; z += 2.6) {
+                    const strut = new THREE.Mesh(new THREE.BoxGeometry(0.14, 1.25, 0.14), yellowMat);
+                    strut.position.set(-0.48, 1.25, z);
+                    strut.rotation.z = -0.35;
+                    slewingGroup.add(strut);
+                    const strutR = strut.clone();
+                    strutR.position.x = 0.48;
+                    strutR.rotation.z = 0.35;
+                    slewingGroup.add(strutR);
+                }
+
+                // Counter-Jib (Rear Boom along -Z) + Heavy Concrete Counterweights
+                const counterJib = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.38, 9.5), yellowMat);
+                counterJib.position.set(0, 0.65, -5.0);
+                counterJib.castShadow = true;
+                slewingGroup.add(counterJib);
+
+                for (let i = 0; i < 3; i++) {
+                    const cw = new THREE.Mesh(new THREE.BoxGeometry(1.9, 1.8, 0.75), concreteMat);
+                    cw.position.set(0, 1.15, -7.2 - i * 0.9);
+                    cw.castShadow = true;
+                    slewingGroup.add(cw);
+                }
+
+                // Steel Suspension Tie-Rods from Apex to Jib & Counter-Jib
+                const makeTieRod = (p1, p2) => {
+                    const dist = p1.distanceTo(p2);
+                    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, dist, 6), darkMat);
+                    rod.position.copy(p1).add(p2).multiplyScalar(0.5);
+                    rod.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), p2.clone().sub(p1).normalize());
+                    slewingGroup.add(rod);
+                };
+                makeTieRod(new THREE.Vector3(0, 4.7, 0), new THREE.Vector3(0, 1.85, 22));
+                makeTieRod(new THREE.Vector3(0, 4.7, 0), new THREE.Vector3(0, 1.0, -8.8));
+
+                // Sliding Trolley along +Z of Jib
+                const trolleyGroup = new THREE.Group();
+                trolleyGroup.position.set(0, 0.42, 16);
+                const trolleyBody = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.45, 1.8), darkMat);
+                trolleyBody.castShadow = true;
+                trolleyGroup.add(trolleyBody);
+                slewingGroup.add(trolleyGroup);
+
+                // Pendulum Pivot attached under Trolley
+                const pendulumGroup = new THREE.Group();
+                pendulumGroup.position.set(0, -0.22, 0);
+                trolleyGroup.add(pendulumGroup);
+
+                // Hoist Steel Cable (unit cylinder scaled dynamically by cableLength)
+                const cableGeo = new THREE.CylinderGeometry(0.055, 0.055, 1, 6);
+                cableGeo.translate(0, -0.5, 0); // anchor top at y = 0
+                const cableMesh = new THREE.Mesh(cableGeo, darkMat);
+                pendulumGroup.add(cableMesh);
+
+                // Hook & Electromagnet Assembly
+                const hookGroup = new THREE.Group();
+                const pulleyBlock = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.6, 0.5), yellowMat);
+                pulleyBlock.castShadow = true;
+                hookGroup.add(pulleyBlock);
+
+                const magnetDisc = new THREE.Mesh(new THREE.CylinderGeometry(0.68, 0.72, 0.32, 16), darkMat);
+                magnetDisc.position.y = -0.46;
+                magnetDisc.castShadow = true;
+                hookGroup.add(magnetDisc);
+
+                // Magnet active glow ring
+                const magnetRingMat = new THREE.MeshBasicMaterial({ color: 0xfacc15 });
+                const magnetRing = new THREE.Mesh(new THREE.TorusGeometry(0.7, 0.07, 8, 20), magnetRingMat);
+                magnetRing.rotation.x = Math.PI / 2;
+                magnetRing.position.y = -0.6;
+                hookGroup.add(magnetRing);
+
+                pendulumGroup.add(hookGroup);
+
+                return {
+                    root: craneRoot,
+                    slewingGroup,
+                    trolleyGroup,
+                    pendulumGroup,
+                    cableMesh,
+                    hookGroup,
+                    magnetRingMat,
+                    mastTopY: mastHeight + 0.6
+                };
+            },
+
+            /** Decorative Low-Poly Parked Dump Truck */
+            createDumpTruck() {
+                const g = new THREE.Group();
+                const yellow = new THREE.MeshStandardMaterial({ color: 0xf59e0b, roughness: 0.45 });
+                const dark = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.8 });
+                const glass = new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.2 });
+
+                const chassis = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.6, 5.8), dark);
+                chassis.position.y = 0.85;
+                chassis.castShadow = true;
+                g.add(chassis);
+
+                const cab = new THREE.Mesh(new THREE.BoxGeometry(2.4, 1.9, 1.9), yellow);
+                cab.position.set(0, 2.0, 1.8);
+                cab.castShadow = true;
+                g.add(cab);
+
+                const windshield = new THREE.Mesh(new THREE.BoxGeometry(2.1, 0.8, 0.15), glass);
+                windshield.position.set(0, 2.25, 2.75);
+                g.add(windshield);
+
+                const bed = new THREE.Mesh(new THREE.BoxGeometry(2.7, 1.5, 3.6), yellow);
+                bed.position.set(0, 1.9, -1.05);
+                bed.castShadow = true;
+                g.add(bed);
+
+                const wheelGeo = new THREE.CylinderGeometry(0.65, 0.65, 0.45, 12);
+                wheelGeo.rotateZ(Math.PI / 2);
+                [[-1.3, 1.7], [1.3, 1.7], [-1.3, -1.5], [1.3, -1.5]].forEach(([wx, wz]) => {
+                    const w = new THREE.Mesh(wheelGeo, dark);
+                    w.position.set(wx, 0.65, wz);
+                    w.castShadow = true;
+                    g.add(w);
+                });
+                return g;
+            },
+
+            /** Decorative Low-Poly Parked Excavator */
+            createExcavator() {
+                const g = new THREE.Group();
+                const yellow = new THREE.MeshStandardMaterial({ color: 0xeab308, roughness: 0.45 });
+                const dark = new THREE.MeshStandardMaterial({ color: 0x1f2937, roughness: 0.8 });
+                const glass = new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.2 });
+
+                // Tracks
+                [-1.15, 1.15].forEach(tx => {
+                    const track = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.75, 4.2), dark);
+                    track.position.set(tx, 0.4, 0);
+                    track.castShadow = true;
+                    g.add(track);
+                });
+
+                // Upper body
+                const body = new THREE.Mesh(new THREE.BoxGeometry(2.4, 1.25, 3.1), yellow);
+                body.position.set(0, 1.4, -0.2);
+                body.castShadow = true;
+                g.add(body);
+
+                const cab = new THREE.Mesh(new THREE.BoxGeometry(1.15, 1.35, 1.6), glass);
+                cab.position.set(-0.55, 2.55, 0.35);
+                g.add(cab);
+
+                // Articulated Boom Arm
+                const boom1 = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.55, 3.6), yellow);
+                boom1.position.set(0.55, 2.6, 2.2);
+                boom1.rotation.x = -0.58;
+                boom1.castShadow = true;
+                g.add(boom1);
+
+                const boom2 = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.45, 2.6), yellow);
+                boom2.position.set(0.55, 2.6, 4.2);
+                boom2.rotation.x = 0.95;
+                boom2.castShadow = true;
+                g.add(boom2);
+
+                const bucket = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.85, 0.95), dark);
+                bucket.position.set(0.55, 1.35, 4.8);
+                bucket.castShadow = true;
+                g.add(bucket);
+
+                return g;
+            }
+        };
+
+        // ============================================================================
+        // 4. MAIN SKYBUILD 3D SIMULATOR ENGINE
+        // ============================================================================
+        class SkyBuildGame {
+            constructor() {
+                this.canvas = document.getElementById('game-canvas');
+                this.audio = new ConstructionAudio();
+
+                // Game Mode & Progression State
+                this.started = false;
+                this.mode = 'contract'; // 'contract' | 'sandbox'
+                this.levelIndex = 0;
+                this.stepIndex = 0;
+                this.cash = 0;
+                this.levelAccuracies = [];
+                this.sandboxDirectToHook = true;
+                this.sandboxCount = 0;
+
+                // Crane Kinematics (Mast located at x=0, z=-14)
+                this.mastPos = new THREE.Vector3(0, 0, -14);
+                this.crane = {
+                    jibAngle: 0.45,       // radians (0 = +Z toward foundation, +1.05 = staging zone)
+                    trolleyRadius: 16.0,  // meters along jib [6.5 .. 25.0]
+                    cableLength: 16.0,    // meters down from trolley [2.0 .. 23.5]
+                    angVel: 0,
+                    radVel: 0,
+                    swingX: 0,
+                    swingZ: 0,
+                    swingVelX: 0,
+                    swingVelZ: 0
+                };
+
+                // Cargo & World Entities
+                this.stagingPos = new THREE.Vector3(14, FOUNDATION_Y, -6);
+                this.stagingCargo = null;    // { mesh, type, size, rotY, sym, label }
+                this.heldCargo = null;       // currently attached to electromagnet
+                this.placedBlocks = [];      // all placed blocks on the foundation pad
+                this.ghostTarget = null;     // { group, fillMat, lineMat, spec }
+                this.particles = [];
+                this.clouds = [];
+
+                // Camera System (0: Orbit, 1: Top-Down Precision, 2: Operator Cabin)
+                this.cameraMode = 0;
+                this.orbit = {
+                    theta: 0.52,
+                    phi: 1.02,
+                    radius: 36,
+                    target: new THREE.Vector3(2, 4, 0),
+                    dragging: false,
+                    lastX: 0,
+                    lastY: 0
+                };
+
+                // Input State (Keyboard + On-Screen Hold Buttons)
+                this.keys = {};
+                this.btnInput = {
+                    rotLeft: false,
+                    rotRight: false,
+                    trolleyOut: false,
+                    trolleyIn: false,
+                    hoistUp: false,
+                    hoistDown: false
+                };
+
+                this.clock = new THREE.Clock();
+
+                // Cache DOM Elements
+                this.ui = {
+                    hud: document.getElementById('hud'),
+                    startScreen: document.getElementById('start-screen'),
+                    helpModal: document.getElementById('help-modal'),
+                    lcModal: document.getElementById('level-complete-modal'),
+                    modeLabel: document.getElementById('hud-mode-label'),
+                    levelName: document.getElementById('hud-level-name'),
+                    progress: document.getElementById('hud-progress'),
+                    cash: document.getElementById('hud-cash'),
+                    statusBanner: document.getElementById('status-banner'),
+                    toast: document.getElementById('toast-msg'),
+                    contractCard: document.getElementById('contract-info-card'),
+                    contractPieceName: document.getElementById('contract-piece-name'),
+                    contractProgressBar: document.getElementById('contract-progress-bar'),
+                    sandboxToolbar: document.getElementById('sandbox-toolbar'),
+                    btnCam: document.getElementById('btn-cam'),
+                    btnMode: document.getElementById('btn-mode'),
+                    btnMute: document.getElementById('btn-mute'),
+                    btnGrabDrop: document.getElementById('btn-grab-drop'),
+                    btnSpawnMode: document.getElementById('btn-spawn-mode'),
+                    lcTitle: document.getElementById('lc-title'),
+                    lcSubtitle: document.getElementById('lc-subtitle'),
+                    lcAccuracy: document.getElementById('lc-accuracy'),
+                    lcCash: document.getElementById('lc-cash'),
+                    btnNextLevel: document.getElementById('btn-next-level')
+                };
+
+                this._initThree();
+                this._buildEnvironment();
+                this._buildCrane();
+                this._buildAlignmentGuide();
+                this._bindEvents();
+                this._resize();
+            }
+
+            /** Setup Daylight Three.js Scene, Shadows, Lighting & Renderer */
+            _initThree() {
+                this.scene = new THREE.Scene();
+                this.scene.background = new THREE.Color(0x87ceeb);
+                this.scene.fog = new THREE.Fog(0x9bd7f2, 55, 165);
+
+                this.camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.2, 260);
+
+                this.renderer = new THREE.WebGLRenderer({
+                    canvas: this.canvas,
+                    antialias: true,
+                    powerPreference: 'high-performance'
+                });
+                this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+                this.renderer.shadowMap.enabled = true;
+                this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+                // Bright Daylight Lighting
+                const hemiLight = new THREE.HemisphereLight(0xdbeafe, 0x8d7b68, 0.78);
+                this.scene.add(hemiLight);
+
+                const sunLight = new THREE.DirectionalLight(0xfffbeb, 1.25);
+                sunLight.position.set(28, 48, 24);
+                sunLight.castShadow = true;
+                sunLight.shadow.mapSize.width = 2048;
+                sunLight.shadow.mapSize.height = 2048;
+                sunLight.shadow.camera.near = 5;
+                sunLight.shadow.camera.far = 120;
+                const d = 32;
+                sunLight.shadow.camera.left = -d;
+                sunLight.shadow.camera.right = d;
+                sunLight.shadow.camera.top = d;
+                sunLight.shadow.camera.bottom = -d;
+                sunLight.shadow.bias = -0.0005;
+                this.scene.add(sunLight);
+            }
+
+            /** Build Daylight Construction Site Terrain, Road, Foundation Pad, Staging Zone & Props */
+            _buildEnvironment() {
+                // Ground Dirt / Grass Terrain
+                const groundGeo = new THREE.PlaneGeometry(240, 240);
+                groundGeo.rotateX(-Math.PI / 2);
+                const groundMat = new THREE.MeshStandardMaterial({ color: 0x7c9a63, roughness: 0.95 });
+                const ground = new THREE.Mesh(groundGeo, groundMat);
+                ground.receiveShadow = true;
+                this.scene.add(ground);
+
+                // Construction Dirt Lot
+                const lotGeo = new THREE.PlaneGeometry(48, 42);
+                lotGeo.rotateX(-Math.PI / 2);
+                const lotMat = new THREE.MeshStandardMaterial({ color: 0xb8a384, roughness: 0.95 });
+                const lot = new THREE.Mesh(lotGeo, lotMat);
+                lot.position.set(2, 0.02, -3);
+                lot.receiveShadow = true;
+                this.scene.add(lot);
+
+                // Asphalt Road running alongside the site
+                const roadGeo = new THREE.PlaneGeometry(200, 9.5);
+                roadGeo.rotateX(-Math.PI / 2);
+                const roadMat = new THREE.MeshStandardMaterial({ color: 0x2d3748, roughness: 0.88 });
+                const road = new THREE.Mesh(roadGeo, roadMat);
+                road.position.set(0, 0.04, 20.5);
+                road.receiveShadow = true;
+                this.scene.add(road);
+
+                // Yellow Dashed Road Centerline
+                const dashMat = new THREE.MeshBasicMaterial({ color: 0xfacc15 });
+                for (let x = -70; x <= 70; x += 6) {
+                    const dash = new THREE.Mesh(new THREE.PlaneGeometry(3, 0.25), dashMat);
+                    dash.rotation.x = -Math.PI / 2;
+                    dash.position.set(x, 0.05, 20.5);
+                    this.scene.add(dash);
+                }
+
+                // Concrete Foundation Pad (Center at x=0, z=2, top y=0.4)
+                const padMat = new THREE.MeshStandardMaterial({ color: 0x9ca3af, roughness: 0.85 });
+                const pad = new THREE.Mesh(new THREE.BoxGeometry(14, FOUNDATION_Y, 14), padMat);
+                pad.position.set(PAD_X, FOUNDATION_Y / 2, PAD_Z);
+                pad.receiveShadow = true;
+                pad.castShadow = true;
+                this.scene.add(pad);
+
+                // Subtle Grid on Foundation Pad for effortless alignment
+                const padGrid = new THREE.GridHelper(14, 14, 0x475569, 0x64748b);
+                padGrid.position.set(PAD_X, FOUNDATION_Y + 0.015, PAD_Z);
+                this.scene.add(padGrid);
+
+                // Staging / Delivery Zone (Center at x=14, z=-6)
+                const stageMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.85 });
+                const stagePad = new THREE.Mesh(new THREE.BoxGeometry(8, FOUNDATION_Y, 8), stageMat);
+                stagePad.position.set(this.stagingPos.x, FOUNDATION_Y / 2, this.stagingPos.z);
+                stagePad.receiveShadow = true;
+                this.scene.add(stagePad);
+
+                // Safety Yellow Border Frame around Staging Zone
+                const stageBorder = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(new THREE.BoxGeometry(8.1, 0.1, 8.1)),
+                    new THREE.LineBasicMaterial({ color: 0xfacc15 })
+                );
+                stageBorder.position.set(this.stagingPos.x, FOUNDATION_Y + 0.05, this.stagingPos.z);
+                this.scene.add(stageBorder);
+
+                // Pulsing Beacon Ring above Staging Zone (visible when cargo awaits pickup)
+                const beaconMat = new THREE.MeshBasicMaterial({ color: 0xfacc15, transparent: true, opacity: 0.75, side: THREE.DoubleSide });
+                this.stagingBeacon = new THREE.Mesh(new THREE.RingGeometry(2.6, 3.0, 28), beaconMat);
+                this.stagingBeacon.rotation.x = -Math.PI / 2;
+                this.stagingBeacon.position.set(this.stagingPos.x, FOUNDATION_Y + 0.08, this.stagingPos.z);
+                this.scene.add(this.stagingBeacon);
+
+                // Safety Barriers & Orange Traffic Cones
+                const coneGeo = new THREE.ConeGeometry(0.32, 0.95, 8);
+                const coneMat = new THREE.MeshStandardMaterial({ color: 0xf97316, roughness: 0.5 });
+                const conePositions = [
+                    [-9, 11], [-4, 11], [4, 11], [9, 11],
+                    [19, -1], [19, -11], [-10, -10], [10, -14]
+                ];
+                conePositions.forEach(([cx, cz]) => {
+                    const cone = new THREE.Mesh(coneGeo, coneMat);
+                    cone.position.set(cx, 0.48, cz);
+                    cone.castShadow = true;
+                    this.scene.add(cone);
+                });
+
+                // Red & White Safety Barriers along the road edge
+                const barrierRed = new THREE.MeshStandardMaterial({ color: 0xef4444, roughness: 0.6 });
+                const barrierWhite = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.6 });
+                for (let x = -14; x <= 14; x += 7) {
+                    const b = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.95, 0.35), (x / 7) % 2 === 0 ? barrierRed : barrierWhite);
+                    b.position.set(x, 0.5, 14.2);
+                    b.castShadow = true;
+                    this.scene.add(b);
+                }
+
+                // Decorative Parked Dump Truck & Excavator
+                const truck = AssetFactory.createDumpTruck();
+                truck.position.set(17.5, 0.04, 11.5);
+                truck.rotation.y = -0.55;
+                this.scene.add(truck);
+
+                const excavator = AssetFactory.createExcavator();
+                excavator.position.set(-15.5, 0.04, -4.5);
+                excavator.rotation.y = 0.85;
+                this.scene.add(excavator);
+
+                // Soft Low-Poly Daylight Clouds drifting in the sky
+                const cloudMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85 });
+                for (let i = 0; i < 12; i++) {
+                    const cg = new THREE.Group();
+                    const puffs = 2 + Math.floor(Math.random() * 3);
+                    for (let p = 0; p < puffs; p++) {
+                        const puff = new THREE.Mesh(new THREE.BoxGeometry(5 + Math.random() * 4, 2 + Math.random() * 1.5, 4 + Math.random() * 3), cloudMat);
+                        puff.position.set(p * 3.2, Math.random() * 1.0, (Math.random() - 0.5) * 2.5);
+                        cg.add(puff);
+                    }
+                    cg.position.set((Math.random() - 0.5) * 140, 36 + Math.random() * 14, -40 + (Math.random() - 0.5) * 90);
+                    this.scene.add(cg);
+                    this.clouds.push({ mesh: cg, speed: 0.6 + Math.random() * 0.8 });
+                }
+            }
+
+            _buildCrane() {
+                this.craneObj = AssetFactory.createTowerCrane();
+                this.craneObj.root.position.copy(this.mastPos);
+                this.scene.add(this.craneObj.root);
+            }
+
+            /** Vertical Laser Beam & Drop-Shadow Footprint Guide for Effortless 3D Placement */
+            _buildAlignmentGuide() {
+                // Vertical Laser Line
+                const laserGeo = new THREE.CylinderGeometry(0.045, 0.045, 1, 6);
+                laserGeo.translate(0, -0.5, 0);
+                this.laserMat = new THREE.MeshBasicMaterial({
+                    color: 0x38bdf8,
+                    transparent: true,
+                    opacity: 0.65
+                });
+                this.laserBeam = new THREE.Mesh(laserGeo, this.laserMat);
+                this.scene.add(this.laserBeam);
+
+                // Landing Target Ring on surface below hook
+                this.dropRingMat = new THREE.MeshBasicMaterial({
+                    color: 0x38bdf8,
+                    transparent: true,
+                    opacity: 0.85,
+                    side: THREE.DoubleSide
+                });
+                this.dropRing = new THREE.Mesh(new THREE.RingGeometry(0.55, 0.85, 24), this.dropRingMat);
+                this.dropRing.rotation.x = -Math.PI / 2;
+                this.scene.add(this.dropRing);
+
+                // Drop-Shadow Footprint Box matching held cargo X/Z size
+                this.footprintMat = new THREE.MeshBasicMaterial({
+                    color: 0x38bdf8,
+                    transparent: true,
+                    opacity: 0.28,
+                    side: THREE.DoubleSide
+                });
+                this.footprintMesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), this.footprintMat);
+                this.footprintMesh.rotation.x = -Math.PI / 2;
+                this.footprintMesh.visible = false;
+                this.scene.add(this.footprintMesh);
+            }
+
+            // ========================================================================
+            // EVENT BINDING (Keyboard, Orbit Mouse/Touch, On-Screen Crane Controls)
+            // ========================================================================
+            _bindEvents() {
+                window.addEventListener('resize', () => this._resize());
+
+                // Keyboard Controls
+                window.addEventListener('keydown', (e) => {
+                    this.keys[e.code] = true;
+                    if (!this.started) return;
+
+                    if (e.code === 'Space') {
+                        e.preventDefault();
+                        this.handleGrabOrRelease();
+                    } else if (e.code === 'KeyR') {
+                        this.rotateHeldCargo();
+                    } else if (e.code === 'KeyC') {
+                        this.cycleCameraMode();
+                    }
+                });
+
+                window.addEventListener('keyup', (e) => {
+                    this.keys[e.code] = false;
+                });
+
+                // Mouse Drag Orbit & Wheel Zoom on Canvas
+                this.canvas.addEventListener('mousedown', (e) => {
+                    if (e.button !== 0) return;
+                    this.audio.init();
+                    this.orbit.dragging = true;
+                    this.orbit.lastX = e.clientX;
+                    this.orbit.lastY = e.clientY;
+                });
+
+                window.addEventListener('mousemove', (e) => {
+                    if (!this.orbit.dragging || this.cameraMode !== 0) return;
+                    const dx = e.clientX - this.orbit.lastX;
+                    const dy = e.clientY - this.orbit.lastY;
+                    this.orbit.lastX = e.clientX;
+                    this.orbit.lastY = e.clientY;
+
+                    this.orbit.theta -= dx * 0.0065;
+                    this.orbit.phi = THREE.MathUtils.clamp(this.orbit.phi - dy * 0.0065, 0.25, 1.42);
+                });
+
+                window.addEventListener('mouseup', () => {
+                    this.orbit.dragging = false;
+                });
+
+                this.canvas.addEventListener('wheel', (e) => {
+                    if (this.cameraMode !== 0) return;
+                    e.preventDefault();
+                    this.orbit.radius = THREE.MathUtils.clamp(this.orbit.radius + e.deltaY * 0.025, 16, 62);
+                }, { passive: false });
+
+                // Touch Orbit on Canvas
+                this.canvas.addEventListener('touchstart', (e) => {
+                    if (e.touches.length === 1) {
+                        this.audio.init();
+                        this.orbit.dragging = true;
+                        this.orbit.lastX = e.touches[0].clientX;
+                        this.orbit.lastY = e.touches[0].clientY;
+                    }
+                }, { passive: true });
+
+                this.canvas.addEventListener('touchmove', (e) => {
+                    if (!this.orbit.dragging || this.cameraMode !== 0 || e.touches.length !== 1) return;
+                    const dx = e.touches[0].clientX - this.orbit.lastX;
+                    const dy = e.touches[0].clientY - this.orbit.lastY;
+                    this.orbit.lastX = e.touches[0].clientX;
+                    this.orbit.lastY = e.touches[0].clientY;
+                    this.orbit.theta -= dx * 0.007;
+                    this.orbit.phi = THREE.MathUtils.clamp(this.orbit.phi - dy * 0.007, 0.25, 1.42);
+                }, { passive: true });
+
+                this.canvas.addEventListener('touchend', () => {
+                    this.orbit.dragging = false;
+                });
+
+                // On-Screen Holdable Crane Controls
+                document.querySelectorAll('[data-ctrl]').forEach(btn => {
+                    const key = btn.getAttribute('data-ctrl');
+                    const press = (e) => {
+                        e.preventDefault();
+                        this.audio.init();
+                        this.btnInput[key] = true;
+                        btn.classList.add('pressed');
+                    };
+                    const release = (e) => {
+                        e.preventDefault();
+                        this.btnInput[key] = false;
+                        btn.classList.remove('pressed');
+                    };
+                    btn.addEventListener('mousedown', press);
+                    btn.addEventListener('mouseup', release);
+                    btn.addEventListener('mouseleave', release);
+                    btn.addEventListener('touchstart', press, { passive: false });
+                    btn.addEventListener('touchend', release, { passive: false });
+                    btn.addEventListener('touchcancel', release, { passive: false });
+                });
+
+                // Action Buttons
+                document.getElementById('btn-start-contract').addEventListener('click', () => {
+                    this.audio.init();
+                    this.launchMode('contract');
+                });
+                document.getElementById('btn-start-sandbox').addEventListener('click', () => {
+                    this.audio.init();
+                    this.launchMode('sandbox');
+                });
+
+                this.ui.btnGrabDrop.addEventListener('click', () => {
+                    this.audio.init();
+                    this.handleGrabOrRelease();
+                });
+
+                document.getElementById('btn-rotate-piece').addEventListener('click', () => {
+                    this.audio.init();
+                    this.rotateHeldCargo();
+                });
+
+                this.ui.btnCam.addEventListener('click', () => this.cycleCameraMode());
+                this.ui.btnMode.addEventListener('click', () => {
+                    this.launchMode(this.mode === 'contract' ? 'sandbox' : 'contract');
+                });
+                document.getElementById('btn-reset').addEventListener('click', () => {
+                    if (this.mode === 'contract') this.loadContractLevel(this.levelIndex);
+                    else this.startSandbox();
+                });
+
+                // Help & Mute
+                document.getElementById('btn-help').addEventListener('click', () => {
+                    this.ui.helpModal.classList.toggle('hidden');
+                });
+                document.getElementById('btn-close-help').addEventListener('click', () => {
+                    this.ui.helpModal.classList.add('hidden');
+                });
+                this.ui.btnMute.addEventListener('click', () => {
+                    const muted = this.audio.toggleMute();
+                    this.ui.btnMute.textContent = muted ? '🔇' : '🔊';
+                });
+
+                // Level Complete Modal Buttons
+                this.ui.btnNextLevel.addEventListener('click', () => {
+                    this.ui.lcModal.classList.add('hidden');
+                    const nextIdx = (this.levelIndex + 1) % CONTRACT_LEVELS.length;
+                    this.loadContractLevel(nextIdx);
+                });
+                document.getElementById('btn-lc-sandbox').addEventListener('click', () => {
+                    this.ui.lcModal.classList.add('hidden');
+                    this.launchMode('sandbox');
+                });
+
+                // Sandbox Material Picker
+                this.ui.btnSpawnMode.addEventListener('click', () => {
+                    this.sandboxDirectToHook = !this.sandboxDirectToHook;
+                    this.ui.btnSpawnMode.textContent = this.sandboxDirectToHook
+                        ? 'MODE: DIRECT TO HOOK'
+                        : 'MODE: STAGING ZONE';
+                });
+
+                document.querySelectorAll('.mat-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.audio.init();
+                        const matType = btn.getAttribute('data-mat');
+                        this.spawnSandboxPiece(matType);
+                    });
+                });
+            }
+
+            _resize() {
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                this.camera.aspect = w / h;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(w, h);
+            }
+
+            // ========================================================================
+            // MODE & LEVEL MANAGEMENT
+            // ========================================================================
+            launchMode(mode) {
+                this.started = true;
+                this.mode = mode;
+                this.ui.startScreen.classList.add('hidden');
+                this.ui.lcModal.classList.add('hidden');
+                this.ui.hud.classList.remove('hidden');
+
+                if (mode === 'contract') {
+                    this.ui.btnMode.textContent = '🧱 FREE BUILD';
+                    this.ui.contractCard.classList.remove('hidden');
+                    this.ui.sandboxToolbar.classList.add('hidden');
+                    this.loadContractLevel(this.levelIndex);
+                } else {
+                    this.ui.btnMode.textContent = '🏗 CONTRACTS';
+                    this.ui.contractCard.classList.add('hidden');
+                    this.ui.sandboxToolbar.classList.remove('hidden');
+                    this.startSandbox();
+                }
+            }
+
+            _clearSite() {
+                for (const b of this.placedBlocks) this.scene.remove(b.mesh);
+                this.placedBlocks.length = 0;
+
+                if (this.stagingCargo) {
+                    this.scene.remove(this.stagingCargo.mesh);
+                    this.stagingCargo = null;
+                }
+                if (this.heldCargo) {
+                    this.craneObj.hookGroup.remove(this.heldCargo.mesh);
+                    this.heldCargo = null;
+                }
+                if (this.ghostTarget) {
+                    this.scene.remove(this.ghostTarget.group);
+                    this.ghostTarget = null;
+                }
+                this.footprintMesh.visible = false;
+                this.craneObj.magnetRingMat.color.setHex(0xfacc15);
+            }
+
+            loadContractLevel(idx) {
+                this._clearSite();
+                this.levelIndex = idx;
+                this.stepIndex = 0;
+                this.levelAccuracies = [];
+
+                const lvl = CONTRACT_LEVELS[idx];
+                this.ui.modeLabel.textContent = `CONTRACT // LEVEL ${lvl.id}`;
+                this.ui.levelName.textContent = lvl.name;
+
+                // Point crane initially near staging zone for immediate action
+                this.crane.jibAngle = 0.85;
+                this.crane.trolleyRadius = 16.0;
+                this.crane.cableLength = 15.0;
+
+                this._setupNextContractStep();
+                this._showToast(`LEVEL ${lvl.id}: ${lvl.name.toUpperCase()}`, 'text-yellow-300');
+            }
+
+            _setupNextContractStep() {
+                const lvl = CONTRACT_LEVELS[this.levelIndex];
+                if (this.ghostTarget) {
+                    this.scene.remove(this.ghostTarget.group);
+                    this.ghostTarget = null;
+                }
+
+                if (this.stepIndex >= lvl.pieces.length) {
+                    this._onLevelComplete();
+                    return;
+                }
+
+                const spec = lvl.pieces[this.stepIndex];
+
+                // Create glowing Blueprint Ghost at target location
+                const ghost = AssetFactory.createBlueprintGhost(spec.size);
+                ghost.group.position.set(spec.pos[0], spec.pos[1], spec.pos[2]);
+                ghost.group.rotation.y = spec.rotY;
+                this.scene.add(ghost.group);
+                this.ghostTarget = { ...ghost, spec };
+
+                // Spawn matching physical piece in Staging Zone
+                const mesh = AssetFactory.createBlockMesh(spec.type, spec.size);
+                mesh.position.set(this.stagingPos.x, FOUNDATION_Y + spec.size[1] / 2, this.stagingPos.z);
+                mesh.rotation.y = 0;
+                this.scene.add(mesh);
+
+                this.stagingCargo = {
+                    mesh,
+                    type: spec.type,
+                    size: spec.size,
+                    rotY: 0,
+                    sym: spec.sym,
+                    label: spec.label
+                };
+
+                // Update HUD
+                this.ui.progress.textContent = `${this.stepIndex} / ${lvl.pieces.length}`;
+                this.ui.contractPieceName.textContent = spec.label;
+                this.ui.contractProgressBar.style.width = `${(this.stepIndex / lvl.pieces.length) * 100}%`;
+            }
+
+            startSandbox() {
+                this._clearSite();
+                this.sandboxCount = 0;
+                this.ui.modeLabel.textContent = 'FREE BUILD SANDBOX';
+                this.ui.levelName.textContent = 'Open Construction Pad';
+                this.ui.progress.textContent = '0 Placed';
+                this._showToast('FREE BUILD READY — PICK A MATERIAL!', 'text-cyan-300');
+            }
+
+            spawnSandboxPiece(type) {
+                const info = SANDBOX_CATALOG[type];
+                if (!info) return;
+
+                // Remove any existing unattached staging piece or replace held piece
+                if (this.sandboxDirectToHook) {
+                    if (this.heldCargo) {
+                        this.craneObj.hookGroup.remove(this.heldCargo.mesh);
+                        this.heldCargo = null;
+                    }
+                    const mesh = AssetFactory.createBlockMesh(type, info.size);
+                    mesh.position.set(0, -0.62 - info.size[1] / 2, 0);
+                    this.craneObj.hookGroup.add(mesh);
+                    this.heldCargo = {
+                        mesh,
+                        type,
+                        size: info.size,
+                        rotY: 0,
+                        sym: info.sym,
+                        label: info.label
+                    };
+                    this.audio.playClamp();
+                    this._showToast(`${info.label.toUpperCase()} ATTACHED TO HOOK`, 'text-yellow-300');
+                } else {
+                    if (this.stagingCargo) {
+                        this.scene.remove(this.stagingCargo.mesh);
+                    }
+                    const mesh = AssetFactory.createBlockMesh(type, info.size);
+                    mesh.position.set(this.stagingPos.x, FOUNDATION_Y + info.size[1] / 2, this.stagingPos.z);
+                    this.scene.add(mesh);
+                    this.stagingCargo = {
+                        mesh,
+                        type,
+                        size: info.size,
+                        rotY: 0,
+                        sym: info.sym,
+                        label: info.label
+                    };
+                    this.audio.playRotateTick();
+                    this._showToast(`${info.label.toUpperCase()} DELIVERED TO STAGING`, 'text-cyan-300');
+                }
+            }
+
+            // ========================================================================
+            // GRAB, ROTATE & PLACEMENT LOGIC
+            // ========================================================================
+            getHookWorldPos() {
+                const pos = new THREE.Vector3();
+                this.craneObj.hookGroup.getWorldPosition(pos);
+                return pos;
+            }
+
+            /** Compute highest surface Y directly underneath (x, z) for stacking & laser guide */
+            getSurfaceHeightAt(x, z, footprintW = 0.6, footprintD = 0.6) {
+                let maxY = 0;
+
+                // Concrete foundation pad bounds (14x14 centered at 0, 2)
+                if (Math.abs(x - PAD_X) <= 7.2 && Math.abs(z - PAD_Z) <= 7.2) {
+                    maxY = Math.max(maxY, FOUNDATION_Y);
+                }
+                // Staging pad bounds (8x8 centered at 14, -6)
+                if (Math.abs(x - this.stagingPos.x) <= 4.2 && Math.abs(z - this.stagingPos.z) <= 4.2) {
+                    maxY = Math.max(maxY, FOUNDATION_Y);
+                }
+
+                // Check placed blocks for vertical stacking
+                const halfW = footprintW * 0.42;
+                const halfD = footprintD * 0.42;
+                for (const b of this.placedBlocks) {
+                    const isRot = Math.abs(Math.sin(b.rotY)) > 0.7;
+                    const bw = (isRot ? b.size[2] : b.size[0]) * 0.5;
+                    const bd = (isRot ? b.size[0] : b.size[2]) * 0.5;
+                    if (Math.abs(x - b.pos.x) < bw + halfW && Math.abs(z - b.pos.z) < bd + halfD) {
+                        maxY = Math.max(maxY, b.pos.y + b.size[1] / 2);
+                    }
+                }
+                return maxY;
+            }
+
+            /** Check if held cargo is aligned with the active Contract Blueprint Ghost */
+            checkBlueprintAlignment() {
+                if (!this.heldCargo || !this.ghostTarget) return { aligned: false, dist: 999, rotMatch: false };
+
+                const hookPos = this.getHookWorldPos();
+                const cargoCenterY = hookPos.y - 0.62 - this.heldCargo.size[1] / 2;
+                const spec = this.ghostTarget.spec;
+                const targetPos = new THREE.Vector3(spec.pos[0], spec.pos[1], spec.pos[2]);
+
+                const horizDist = Math.hypot(hookPos.x - targetPos.x, hookPos.z - targetPos.z);
+                const vertDist = Math.abs(cargoCenterY - targetPos.y);
+
+                // Check rotation match (symmetrical blocks always match; walls/beams match modulo PI)
+                let rotMatch = true;
+                if (!spec.sym) {
+                    const diff = Math.abs(((this.heldCargo.rotY - spec.rotY) % Math.PI + Math.PI) % Math.PI);
+                    rotMatch = diff < 0.25 || Math.abs(diff - Math.PI) < 0.25;
+                }
+
+                const aligned = horizDist < 2.35 && vertDist < 3.6 && rotMatch;
+                return { aligned, horizDist, vertDist, rotMatch };
+            }
+
+            rotateHeldCargo() {
+                if (!this.heldCargo) return;
+                this.heldCargo.rotY = (this.heldCargo.rotY + Math.PI / 2) % (Math.PI * 2);
+                this.heldCargo.mesh.rotation.y = this.heldCargo.rotY;
+                this.audio.playRotateTick();
+            }
+
+            handleGrabOrRelease() {
+                const hookPos = this.getHookWorldPos();
+
+                // CASE 1: Hook is empty -> Try grabbing cargo from Staging Zone
+                if (!this.heldCargo) {
+                    if (!this.stagingCargo) {
+                        if (this.mode === 'sandbox') {
+                            this._showToast('SELECT A MATERIAL BELOW TO SPAWN', 'text-yellow-300');
+                        }
+                        return;
+                    }
+
+                    const cargoTop = this.stagingCargo.mesh.position.clone();
+                    cargoTop.y += this.stagingCargo.size[1] / 2;
+                    const horizDist = Math.hypot(hookPos.x - cargoTop.x, hookPos.z - cargoTop.z);
+                    const vertDist = Math.abs(hookPos.y - cargoTop.y);
+
+                    if (horizDist < 2.8 && vertDist < 3.2) {
+                        // Attach to electromagnet!
+                        const c = this.stagingCargo;
+                        this.scene.remove(c.mesh);
+                        c.mesh.position.set(0, -0.62 - c.size[1] / 2, 0);
+                        c.mesh.rotation.set(0, c.rotY, 0);
+                        this.craneObj.hookGroup.add(c.mesh);
+
+                        this.heldCargo = c;
+                        this.stagingCargo = null;
+                        this.craneObj.magnetRingMat.color.setHex(0x22d3ee);
+                        this.audio.playClamp();
+                        this._spawnParticles(hookPos, 0x38bdf8, 12);
+                        this._showToast(`GRABBED: ${c.label.toUpperCase()}`, 'text-cyan-300');
+                    } else {
+                        this._showToast('LOWER HOOK CLOSER TO CARGO IN STAGING ZONE', 'text-amber-300');
+                    }
+                    return;
+                }
+
+                // CASE 2: Holding cargo in CONTRACT MODE -> Snap to Blueprint Ghost
+                if (this.mode === 'contract') {
+                    const check = this.checkBlueprintAlignment();
+                    if (check.aligned) {
+                        const spec = this.ghostTarget.spec;
+                        const c = this.heldCargo;
+
+                        // Detach from hook and snap cleanly to blueprint target
+                        this.craneObj.hookGroup.remove(c.mesh);
+                        c.mesh.position.set(spec.pos[0], spec.pos[1], spec.pos[2]);
+                        c.mesh.rotation.set(0, spec.rotY, 0);
+                        this.scene.add(c.mesh);
+
+                        this.placedBlocks.push({
+                            mesh: c.mesh,
+                            pos: new THREE.Vector3(spec.pos[0], spec.pos[1], spec.pos[2]),
+                            size: c.size,
+                            rotY: spec.rotY
+                        });
+
+                        this.heldCargo = null;
+                        this.craneObj.magnetRingMat.color.setHex(0xfacc15);
+
+                        // Accuracy & Cash Calculation
+                        const accuracy = Math.round(THREE.MathUtils.clamp(100 - check.horizDist * 11, 76, 100));
+                        const reward = Math.round(150 + accuracy * 2);
+                        this.cash += reward;
+                        this.levelAccuracies.push(accuracy);
+                        this.ui.cash.textContent = `$${this.cash.toLocaleString()}`;
+
+                        this.audio.playPlacement(c.type === 'steel');
+                        this._spawnParticles(new THREE.Vector3(spec.pos[0], spec.pos[1] - spec.size[1] / 2, spec.pos[2]), 0xe2e8f0, 22);
+                        if (c.type === 'steel') {
+                            this._spawnParticles(new THREE.Vector3(spec.pos[0], spec.pos[1], spec.pos[2]), 0xfacc15, 16);
+                        }
+
+                        this._showToast(`PLACED! ${accuracy}% ACCURACY (+$${reward})`, 'text-emerald-300');
+                        this.stepIndex++;
+                        this._setupNextContractStep();
+                    } else if (!check.rotMatch && check.horizDist < 2.6) {
+                        this._showToast('PRESS [R] TO ROTATE PIECE 90° TO MATCH BLUEPRINT', 'text-yellow-300');
+                    } else {
+                        this._showToast('ALIGN OVER CYAN BLUEPRINT GHOST TO PLACE', 'text-amber-300');
+                    }
+                    return;
+                }
+
+                // CASE 3: Holding cargo in FREE BUILD SANDBOX -> Grid-Snapped Placement on Pad
+                if (this.mode === 'sandbox') {
+                    const c = this.heldCargo;
+                    const snapX = Math.round(hookPos.x * 2) / 2;
+                    const snapZ = Math.round(hookPos.z * 2) / 2;
+
+                    // Keep placement within foundation pad area
+                    if (Math.abs(snapX - PAD_X) > 6.8 || Math.abs(snapZ - PAD_Z) > 6.8) {
+                        this._showToast('MOVE OVER THE CONCRETE FOUNDATION PAD TO PLACE', 'text-amber-300');
+                        return;
+                    }
+
+                    const isRot = Math.abs(Math.sin(c.rotY)) > 0.7;
+                    const fw = isRot ? c.size[2] : c.size[0];
+                    const fd = isRot ? c.size[0] : c.size[2];
+                    const baseY = this.getSurfaceHeightAt(snapX, snapZ, fw, fd);
+                    const placeY = baseY + c.size[1] / 2;
+
+                    this.craneObj.hookGroup.remove(c.mesh);
+                    c.mesh.position.set(snapX, placeY, snapZ);
+                    c.mesh.rotation.set(0, c.rotY, 0);
+                    this.scene.add(c.mesh);
+
+                    this.placedBlocks.push({
+                        mesh: c.mesh,
+                        pos: new THREE.Vector3(snapX, placeY, snapZ),
+                        size: c.size,
+                        rotY: c.rotY
+                    });
+
+                    this.heldCargo = null;
+                    this.craneObj.magnetRingMat.color.setHex(0xfacc15);
+                    this.sandboxCount++;
+                    this.cash += 50;
+                    this.ui.cash.textContent = `$${this.cash.toLocaleString()}`;
+                    this.ui.progress.textContent = `${this.sandboxCount} Placed`;
+
+                    this.audio.playPlacement(c.type === 'steel');
+                    this._spawnParticles(new THREE.Vector3(snapX, baseY + 0.1, snapZ), 0xe2e8f0, 18);
+                    this._showToast(`${c.label.toUpperCase()} PLACED!`, 'text-emerald-300');
+                }
+            }
+
+            _onLevelComplete() {
+                const lvl = CONTRACT_LEVELS[this.levelIndex];
+                const avgAcc = this.levelAccuracies.length
+                    ? Math.round(this.levelAccuracies.reduce((a, b) => a + b, 0) / this.levelAccuracies.length)
+                    : 100;
+                const bonus = 500 * lvl.id;
+                this.cash += bonus;
+                this.ui.cash.textContent = `$${this.cash.toLocaleString()}`;
+
+                this.audio.playFanfare();
+                this._spawnParticles(new THREE.Vector3(PAD_X, 6, PAD_Z), 0xfacc15, 36);
+
+                this.ui.lcTitle.textContent = `LEVEL ${lvl.id} COMPLETE!`;
+                this.ui.lcSubtitle.textContent = `${lvl.name} finished! Completion Bonus: +$${bonus}`;
+                this.ui.lcAccuracy.textContent = `${avgAcc}%`;
+                this.ui.lcCash.textContent = `$${this.cash.toLocaleString()}`;
+                this.ui.btnNextLevel.textContent = this.levelIndex < CONTRACT_LEVELS.length - 1
+                    ? 'NEXT CONTRACT ▶'
+                    : 'REPLAY CONTRACTS ↺';
+                this.ui.lcModal.classList.remove('hidden');
+            }
+
+            cycleCameraMode() {
+                this.cameraMode = (this.cameraMode + 1) % 3;
+                const labels = ['🎥 ORBIT', '🎥 TOP-DOWN', '🎥 CABIN'];
+                this.ui.btnCam.textContent = labels[this.cameraMode];
+                this._showToast(`CAMERA: ${labels[this.cameraMode].replace('🎥 ', '')}`, 'text-sky-300');
+            }
+
+            _spawnParticles(origin, colorHex, count = 16) {
+                const geo = new THREE.BoxGeometry(0.22, 0.22, 0.22);
+                const mat = new THREE.MeshBasicMaterial({ color: colorHex });
+                for (let i = 0; i < count; i++) {
+                    const mesh = new THREE.Mesh(geo, mat);
+                    mesh.position.copy(origin);
+                    this.scene.add(mesh);
+                    this.particles.push({
+                        mesh,
+                        vx: (Math.random() - 0.5) * 7,
+                        vy: 1.5 + Math.random() * 5,
+                        vz: (Math.random() - 0.5) * 7,
+                        life: 0.55 + Math.random() * 0.4,
+                        maxLife: 0.95
+                    });
+                }
+            }
+
+            _showToast(msg, colorClass = 'text-emerald-300') {
+                const t = this.ui.toast;
+                t.textContent = msg;
+                t.className = `fixed top-32 left-1/2 -translate-x-1/2 ind-panel border-yellow-400/50 rounded-full px-5 py-1.5 font-tech text-xs sm:text-base font-bold tracking-wide ${colorClass}`;
+                void t.offsetWidth;
+                t.classList.add('toast-show');
+            }
+
+            // ========================================================================
+            // 60 FPS SIMULATION & RENDER LOOP
+            // ========================================================================
+            update(dt) {
+                const now = performance.now() * 0.001;
+
+                // Drift background clouds gently
+                for (const c of this.clouds) {
+                    c.mesh.position.x += c.speed * dt;
+                    if (c.mesh.position.x > 80) c.mesh.position.x = -80;
+                }
+
+                // Pulse Staging Zone Beacon when cargo awaits pickup
+                if (this.stagingCargo) {
+                    this.stagingBeacon.visible = true;
+                    const s = 1 + Math.sin(now * 5) * 0.08;
+                    this.stagingBeacon.scale.set(s, s, 1);
+                } else {
+                    this.stagingBeacon.visible = false;
+                }
+
+                // 1. Read Crane Controls
+                let rotInput = 0;
+                let trolleyInput = 0;
+                let hoistInput = 0;
+
+                if (this.started) {
+                    if (this.keys['KeyA'] || this.keys['ArrowLeft'] || this.btnInput.rotLeft) rotInput -= 1;
+                    if (this.keys['KeyD'] || this.keys['ArrowRight'] || this.btnInput.rotRight) rotInput += 1;
+                    if (this.keys['KeyW'] || this.keys['ArrowUp'] || this.btnInput.trolleyOut) trolleyInput += 1;
+                    if (this.keys['KeyS'] || this.keys['ArrowDown'] || this.btnInput.trolleyIn) trolleyInput -= 1;
+                    if (this.keys['KeyQ'] || this.keys['ShiftLeft'] || this.keys['ShiftRight'] || this.btnInput.hoistUp) hoistInput -= 1;
+                    if (this.keys['KeyE'] || this.keys['ControlLeft'] || this.keys['ControlRight'] || this.btnInput.hoistDown) hoistInput += 1;
+                }
+
+                // Smoothly accelerate crane jib, trolley, and hoist cable
+                const targetAngVel = rotInput * 0.68;
+                const targetRadVel = trolleyInput * 8.5;
+                const hoistSpeed = 8.5;
+
+                const prevAngVel = this.crane.angVel;
+                const prevRadVel = this.crane.radVel;
+                this.crane.angVel = THREE.MathUtils.lerp(this.crane.angVel, targetAngVel, Math.min(1, dt * 6.5));
+                this.crane.radVel = THREE.MathUtils.lerp(this.crane.radVel, targetRadVel, Math.min(1, dt * 7.5));
+
+                this.crane.jibAngle += this.crane.angVel * dt;
+                this.crane.trolleyRadius = THREE.MathUtils.clamp(
+                    this.crane.trolleyRadius + this.crane.radVel * dt,
+                    6.5,
+                    25.2
+                );
+
+                // Compute max cable length so hook doesn't clip below ground
+                const maxCable = this.craneObj.mastTopY - (this.heldCargo ? this.heldCargo.size[1] + 1.0 : 1.1);
+                this.crane.cableLength = THREE.MathUtils.clamp(
+                    this.crane.cableLength + hoistInput * hoistSpeed * dt,
+                    2.2,
+                    maxCable
+                );
+
+                // Update Crane Motor Hum Audio
+                const motorActivity = Math.min(1, Math.abs(this.crane.angVel) * 1.4 + Math.abs(this.crane.radVel) * 0.12 + Math.abs(hoistInput) * 0.8);
+                this.audio.updateMotor(motorActivity, hoistInput !== 0);
+
+                // 2. Gentle Damped Pendulum Physics on Hook/Load
+                const angAccel = (this.crane.angVel - prevAngVel) / Math.max(dt, 0.001);
+                const radAccel = (this.crane.radVel - prevRadVel) / Math.max(dt, 0.001);
+                const stiffness = 12.0;
+                const damping = 4.2;
+
+                // Tangential & radial inertia kick
+                this.crane.swingVelZ += (-angAccel * 0.09 - stiffness * this.crane.swingZ - damping * this.crane.swingVelZ) * dt;
+                this.crane.swingVelX += (radAccel * 0.012 - stiffness * this.crane.swingX - damping * this.crane.swingVelX) * dt;
+
+                this.crane.swingZ = THREE.MathUtils.clamp(this.crane.swingZ + this.crane.swingVelZ * dt, -0.14, 0.14);
+                this.crane.swingX = THREE.MathUtils.clamp(this.crane.swingX + this.crane.swingVelX * dt, -0.14, 0.14);
+
+                // Apply Transforms to 3D Tower Crane Hierarchy
+                this.craneObj.slewingGroup.rotation.y = this.crane.jibAngle;
+                this.craneObj.trolleyGroup.position.z = this.crane.trolleyRadius;
+                this.craneObj.pendulumGroup.rotation.z = this.crane.swingZ;
+                this.craneObj.pendulumGroup.rotation.x = this.crane.swingX;
+                this.craneObj.cableMesh.scale.y = this.crane.cableLength;
+                this.craneObj.hookGroup.position.y = -this.crane.cableLength;
+
+                // 3. Update Vertical Laser Alignment Guide & Blueprint Feedback
+                this._updateAlignmentAndHUD(now);
+
+                // 4. Update Particles
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const p = this.particles[i];
+                    p.life -= dt;
+                    p.vy -= 14 * dt;
+                    p.mesh.position.x += p.vx * dt;
+                    p.mesh.position.y = Math.max(0.1, p.mesh.position.y + p.vy * dt);
+                    p.mesh.position.z += p.vz * dt;
+                    p.mesh.scale.setScalar(Math.max(0.01, p.life / p.maxLife));
+                    if (p.life <= 0) {
+                        this.scene.remove(p.mesh);
+                        this.particles.splice(i, 1);
+                    }
+                }
+
+                // 5. Update Camera
+                this._updateCamera(dt, now);
+            }
+
+            _updateAlignmentAndHUD(now) {
+                const hookPos = this.getHookWorldPos();
+                let beamTopY = hookPos.y - 0.6;
+                let fw = 1.0, fd = 1.0;
+
+                if (this.heldCargo) {
+                    beamTopY = hookPos.y - 0.62 - this.heldCargo.size[1];
+                    const isRot = Math.abs(Math.sin(this.heldCargo.rotY)) > 0.7;
+                    fw = isRot ? this.heldCargo.size[2] : this.heldCargo.size[0];
+                    fd = isRot ? this.heldCargo.size[0] : this.heldCargo.size[2];
+                }
+
+                const surfaceY = this.getSurfaceHeightAt(hookPos.x, hookPos.z, fw, fd);
+                const beamLen = Math.max(0.05, beamTopY - surfaceY);
+
+                this.laserBeam.position.set(hookPos.x, beamTopY, hookPos.z);
+                this.laserBeam.scale.y = beamLen;
+
+                this.dropRing.position.set(hookPos.x, surfaceY + 0.04, hookPos.z);
+
+                if (this.heldCargo) {
+                    this.footprintMesh.visible = true;
+                    this.footprintMesh.position.set(hookPos.x, surfaceY + 0.03, hookPos.z);
+                    this.footprintMesh.scale.set(fw, fd, 1);
+                } else {
+                    this.footprintMesh.visible = false;
+                }
+
+                // Color-code laser & status banner based on context
+                let guideColor = 0x38bdf8; // default cyan
+                let statusText = 'MOVE CRANE TO STAGING ZONE & PRESS [SPACE] TO GRAB';
+                let grabBtnText = '🧲 GRAB';
+
+                if (this.heldCargo) {
+                    grabBtnText = '⬇ PLACE';
+                    if (this.mode === 'contract' && this.ghostTarget) {
+                        const check = this.checkBlueprintAlignment();
+                        if (check.aligned) {
+                            guideColor = 0x10b981; // bright emerald green!
+                            statusText = '✔ ALIGNED WITH BLUEPRINT — PRESS [SPACE] TO SNAP!';
+                            this.ghostTarget.fillMat.color.setHex(0x10b981);
+                            this.ghostTarget.fillMat.opacity = 0.36;
+                            this.ghostTarget.lineMat.color.setHex(0x6ee7b7);
+                        } else {
+                            guideColor = 0xfacc15;
+                            statusText = !check.rotMatch && check.horizDist < 3.0
+                                ? '↻ PRESS [R] TO ROTATE PIECE 90°'
+                                : 'CARRY TO GLOWING CYAN BLUEPRINT TARGET';
+                            this.ghostTarget.fillMat.color.setHex(0x22d3ee);
+                            this.ghostTarget.fillMat.opacity = 0.18 + Math.sin(now * 4) * 0.06;
+                            this.ghostTarget.lineMat.color.setHex(0x67e8f9);
+                        }
+                    } else {
+                        guideColor = 0x10b981;
+                        statusText = 'POSITION OVER FOUNDATION PAD & PRESS [SPACE] TO PLACE';
+                    }
+                } else if (this.stagingCargo) {
+                    const d = Math.hypot(hookPos.x - this.stagingPos.x, hookPos.z - this.stagingPos.z);
+                    if (d < 2.8) {
+                        guideColor = 0x10b981;
+                        statusText = '✔ OVER CARGO — LOWER HOOK & PRESS [SPACE] TO GRAB';
+                    }
+                } else if (this.mode === 'sandbox') {
+                    statusText = 'SELECT A MATERIAL FROM THE BOTTOM-LEFT TOOLBAR';
+                }
+
+                this.laserMat.color.setHex(guideColor);
+                this.dropRingMat.color.setHex(guideColor);
+                this.footprintMat.color.setHex(guideColor);
+
+                if (this.started) {
+                    this.ui.statusBanner.textContent = statusText;
+                    this.ui.btnGrabDrop.textContent = grabBtnText;
+                }
+            }
+
+            _updateCamera(dt, now) {
+                if (!this.started) {
+                    // Scenic slow orbit on Start Screen
+                    const a = now * 0.16;
+                    this.camera.position.set(Math.sin(a) * 38, 18, Math.cos(a) * 38);
+                    this.camera.lookAt(2, 6, -2);
+                    return;
+                }
+
+                const hookPos = this.getHookWorldPos();
+
+                if (this.cameraMode === 0) {
+                    // Mode 1: Free Orbit Camera
+                    const r = this.orbit.radius;
+                    const x = this.orbit.target.x + r * Math.sin(this.orbit.phi) * Math.sin(this.orbit.theta);
+                    const y = Math.max(2.5, this.orbit.target.y + r * Math.cos(this.orbit.phi));
+                    const z = this.orbit.target.z + r * Math.sin(this.orbit.phi) * Math.cos(this.orbit.theta);
+                    this.camera.position.lerp(new THREE.Vector3(x, y, z), Math.min(1, dt * 10));
+                    this.camera.lookAt(this.orbit.target);
+                } else if (this.cameraMode === 1) {
+                    // Mode 2: Top-Down Precision Camera tracking hook
+                    const targetCam = new THREE.Vector3(hookPos.x, 34, hookPos.z + 2.5);
+                    this.camera.position.lerp(targetCam, Math.min(1, dt * 8));
+                    this.camera.lookAt(hookPos.x, 0, hookPos.z);
+                } else {
+                    // Mode 3: Operator Cabin Camera high on the slewing mast
+                    const localCabin = new THREE.Vector3(1.55, 0.2, 2.0);
+                    this.craneObj.slewingGroup.localToWorld(localCabin);
+                    this.camera.position.lerp(localCabin, Math.min(1, dt * 12));
+                    this.camera.lookAt(hookPos.x, Math.max(1, hookPos.y - 2), hookPos.z);
+                }
+            }
+
+            animate() {
+                requestAnimationFrame(() => this.animate());
+                const dt = Math.min(this.clock.getDelta(), 0.05);
+                this.update(dt);
+                this.renderer.render(this.scene, this.camera);
+            }
+        }
+
+        // Start 3D simulation strictly after window onload
+        window.onload = function () {
+            try {
+                const game = new SkyBuildGame();
+                game.animate();
+            } catch (err) {
+                console.error('SkyBuild 3D initialization error:', err);
+            }
+        };
+    </script>
+</body>
+</html>

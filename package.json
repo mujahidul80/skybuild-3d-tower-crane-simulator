@@ -1,0 +1,32 @@
+{
+  "name": "skybuild-3d-tower-crane-simulator",
+  "version": "1.0.0",
+  "description": "SkyBuild 3D: Tower Crane & Construction Simulator built with Three.js & Tailwind CSS by Md Mujahidul Islam",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve . -l 3000",
+    "start": "npx -y serve . -l 3000",
+    "build": "node -e \"const fs=require('fs'); ['public', 'dist'].forEach(d => { fs.mkdirSync(d, {recursive:true}); fs.copyFileSync('index.html', d + '/index.html'); if(fs.existsSync('robots.txt')) fs.copyFileSync('robots.txt', d + '/robots.txt'); if(fs.existsSync('sitemap.xml')) fs.copyFileSync('sitemap.xml', d + '/sitemap.xml'); }); console.log('Build completed: public & dist ready.');\""
+  },
+  "keywords": [
+    "skybuild",
+    "threejs",
+    "tower-crane",
+    "construction-simulator",
+    "physics-game",
+    "webgl",
+    "game-developer",
+    "tailwind-css",
+    "javascript"
+  ],
+  "author": {
+    "name": "Md Mujahidul Islam",
+    "url": "https://github.com/mujahidul80"
+  },
+  "license": "MIT",
+  "homepage": "https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mujahidul80/skybuild-3d-tower-crane-simulator.git"
+  }
+}

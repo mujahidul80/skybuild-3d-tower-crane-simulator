@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mujahidul80.github.io/skybuild-3d-tower-crane-simulator/sitemap.xml
